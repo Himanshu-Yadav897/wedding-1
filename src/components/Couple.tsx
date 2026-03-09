@@ -44,7 +44,7 @@ export default function Couple() {
       {/* Section title */}
       <div className="section-container text-center mb-14 sm:mb-20 lg:mb-28">
         <p
-          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-4 sm:mb-5"
+          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-5 sm:mb-6 lg:mb-8"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
           The Couple
@@ -70,13 +70,13 @@ export default function Couple() {
         </div>
         <div className="groom-text flex-1 text-center lg:text-left px-6 sm:px-10 lg:px-0">
           <p
-            className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4"
+            className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-4 sm:mb-5 lg:mb-6"
             style={{ fontFamily: "var(--font-cormorant-garamond)" }}
           >
             The Groom
           </p>
           <h3
-            className="text-3xl sm:text-4xl lg:text-5xl font-light mb-5 sm:mb-6 lg:mb-8"
+            className="text-3xl sm:text-4xl lg:text-5xl font-light mb-6 sm:mb-8 lg:mb-10"
             style={{ fontFamily: "var(--font-cormorant)" }}
           >
             Shreyansh
@@ -104,13 +104,13 @@ export default function Couple() {
         </div>
         <div className="bride-text flex-1 text-center lg:text-right px-6 sm:px-10 lg:px-0">
           <p
-            className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4"
+            className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-4 sm:mb-5 lg:mb-6"
             style={{ fontFamily: "var(--font-cormorant-garamond)" }}
           >
             The Bride
           </p>
           <h3
-            className="text-3xl sm:text-4xl lg:text-5xl font-light mb-5 sm:mb-6 lg:mb-8"
+            className="text-3xl sm:text-4xl lg:text-5xl font-light mb-6 sm:mb-8 lg:mb-10"
             style={{ fontFamily: "var(--font-cormorant)" }}
           >
             Ankita

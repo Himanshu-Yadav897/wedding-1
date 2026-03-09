@@ -73,7 +73,7 @@ export default function OurStory() {
       {/* Section title */}
       <div className="section-container text-center mb-14 sm:mb-20 lg:mb-28">
         <p
-          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-4 sm:mb-5"
+          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-5 sm:mb-6 lg:mb-8"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
           Our Love Story
@@ -113,13 +113,13 @@ export default function OurStory() {
               }`}
             >
               <p
-                className="text-[var(--gold)] tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4"
+                className="text-[var(--gold)] tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 sm:mb-5 lg:mb-6"
                 style={{ fontFamily: "var(--font-cormorant-garamond)" }}
               >
                 Chapter {i + 1}
               </p>
               <h3
-                className="text-white text-2xl sm:text-3xl lg:text-4xl font-light mb-4 sm:mb-5 lg:mb-6"
+                className="text-white text-2xl sm:text-3xl lg:text-4xl font-light mb-5 sm:mb-6 lg:mb-8"
                 style={{ fontFamily: "var(--font-cormorant)" }}
               >
                 {storyTexts[i].title}

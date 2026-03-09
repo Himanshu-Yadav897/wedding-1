@@ -18,7 +18,7 @@ const galleryImages = [
   { src: "/S&A/DSC03184.JPG", tall: false },
   { src: "/S&A/DSC05145.JPG", tall: false },
   { src: "/S&A/DSC01335.JPG", tall: true },
-];
+] as const;
 
 export default function Gallery() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -83,17 +83,15 @@ export default function Gallery() {
         </h2>
       </div>
 
-      {/* Grid gallery — clean, controlled layout */}
+      {/* Masonry gallery — CSS columns for even distribution */}
       <div className="w-full max-w-[1100px] mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-3 lg:gap-4">
+        <div className="columns-2 lg:columns-3 gap-3 sm:gap-3 lg:gap-4">
           {galleryImages.map((img, i) => (
             <div
               key={i}
-              className={`gallery-item overflow-hidden rounded-lg sm:rounded-lg lg:rounded-sm ${
-                img.tall ? "row-span-2" : ""
-              }`}
+              className="gallery-item overflow-hidden rounded-lg sm:rounded-lg lg:rounded-sm mb-3 lg:mb-4 break-inside-avoid"
             >
-              <div className="relative overflow-hidden group cursor-pointer w-full h-full">
+              <div className="relative overflow-hidden group cursor-pointer w-full">
                 <div className={`relative w-full ${img.tall ? "aspect-[3/5]" : "aspect-[4/5]"}`}>
                   <Image
                     src={img.src}

@@ -64,7 +64,7 @@ export default function Venue() {
       {/* Section title */}
       <div className="section-container text-center mb-14 sm:mb-18 lg:mb-24">
         <p
-          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-4 sm:mb-5"
+          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-5 sm:mb-6 lg:mb-8"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
           The Celebration
@@ -80,9 +80,9 @@ export default function Venue() {
       {/* Venue Info — constrained center */}
       <div className="venue-info w-full max-w-[900px] mx-auto text-center mb-16 sm:mb-24 lg:mb-32 px-5 sm:px-8">
         {/* Venue image — fixed 16:9 on desktop, portrait on mobile */}
-        <div className="relative w-full aspect-[3/4] sm:aspect-[4/3] lg:aspect-[16/9] rounded-xl sm:rounded-lg lg:rounded-sm overflow-hidden mb-10 sm:mb-12 lg:mb-14">
+        <div className="relative w-full aspect-[3/4] sm:aspect-[4/3] lg:aspect-[16/9] rounded-xl sm:rounded-lg lg:rounded-sm overflow-hidden mb-12 sm:mb-14 lg:mb-16">
           <Image
-            src="/S&A/DSC05174.JPG"
+            src="/taj hotel.avif"
             alt="Taj Usha Kiran Palace"
             fill
             className="object-cover"
@@ -153,7 +153,7 @@ export default function Venue() {
         {/* Vertical line — left on mobile/tablet, center on lg */}
         <div className="timeline-line absolute left-5 sm:left-8 lg:left-1/2 lg:-translate-x-1/2 top-0 bottom-0 w-px bg-[var(--gold)]/30" />
 
-        <div className="space-y-10 sm:space-y-12 lg:space-y-14">
+        <div className="space-y-14 sm:space-y-16 lg:space-y-20">
           {events.map((event, i) => (
             <div
               key={i}
@@ -167,13 +167,13 @@ export default function Venue() {
               {/* Content */}
               <div className={`flex-1 ${i % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}>
                 <p
-                  className="text-[var(--gold)] text-[11px] sm:text-xs lg:text-sm tracking-[0.2em] uppercase mb-1"
+                  className="text-[var(--gold)] text-[11px] sm:text-xs lg:text-sm tracking-[0.2em] uppercase mb-2 sm:mb-3"
                   style={{ fontFamily: "var(--font-cormorant-garamond)" }}
                 >
                   {event.time}
                 </p>
                 <h4
-                  className="text-white text-xl sm:text-2xl lg:text-3xl font-light mb-1 lg:mb-2"
+                  className="text-white text-xl sm:text-2xl lg:text-3xl font-light mb-2 sm:mb-3 lg:mb-4"
                   style={{ fontFamily: "var(--font-cormorant)" }}
                 >
                   {event.name}

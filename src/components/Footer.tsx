@@ -13,20 +13,20 @@ export default function Footer() {
           viewport={{ once: true }}
         >
           <p
-            className="text-[var(--gold)] text-2xl sm:text-3xl lg:text-4xl font-light mb-5 sm:mb-6 lg:mb-8"
+            className="text-[var(--gold)] text-2xl sm:text-3xl lg:text-4xl font-light mb-6 sm:mb-8 lg:mb-10"
             style={{ fontFamily: "var(--font-cormorant)" }}
           >
             S &amp; A
           </p>
 
           <p
-            className="text-white/40 text-[11px] sm:text-xs lg:text-sm tracking-[0.2em] uppercase mb-8 sm:mb-10 lg:mb-12"
+            className="text-white/40 text-[11px] sm:text-xs lg:text-sm tracking-[0.2em] uppercase mb-10 sm:mb-12 lg:mb-14"
             style={{ fontFamily: "var(--font-cormorant-garamond)" }}
           >
             #ShreyanshWedsAnkita
           </p>
 
-          <div className="ornament mb-6 sm:mb-7 lg:mb-8">
+          <div className="ornament mb-8 sm:mb-10 lg:mb-12">
             <span className="text-white/30 text-[10px] sm:text-[11px] lg:text-xs tracking-widest uppercase">
               18–19 · 04 · 2026
             </span>
