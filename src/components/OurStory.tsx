@@ -82,7 +82,7 @@ export default function OurStory() {
           className="text-white text-3xl sm:text-4xl lg:text-6xl font-light"
           style={{ fontFamily: "var(--font-cormorant)" }}
         >
-          Written in the Stars
+          Written in the Stars ✦ विधि का विधान
         </h2>
       </div>
 

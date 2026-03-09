@@ -1,3 +1,4 @@
+import SplashScreen from "@/components/SplashScreen";
 import Hero from "@/components/Hero";
 import Couple from "@/components/Couple";
 import OurStory from "@/components/OurStory";
@@ -9,6 +10,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main>
+      <SplashScreen />
       <Hero />
       <Couple />
       <OurStory />

@@ -33,6 +33,12 @@ export default function Footer() {
           </div>
 
           <p
+            className="text-[var(--gold)]/40 text-sm sm:text-base lg:text-lg mb-3 sm:mb-4"
+            style={{ fontFamily: "serif" }}
+          >
+            ॐ
+          </p>
+          <p
             className="text-white/20 text-[10px] sm:text-[11px] lg:text-xs tracking-wider"
             style={{ fontFamily: "var(--font-cormorant-garamond)" }}
           >

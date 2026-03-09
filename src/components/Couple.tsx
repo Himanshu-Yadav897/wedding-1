@@ -53,7 +53,7 @@ export default function Couple() {
           className="text-[var(--black)] text-3xl sm:text-4xl lg:text-6xl font-light"
           style={{ fontFamily: "var(--font-cormorant)" }}
         >
-          Two Souls, One Journey
+          Two Souls, One Sacred Bond
         </h2>
       </div>
 

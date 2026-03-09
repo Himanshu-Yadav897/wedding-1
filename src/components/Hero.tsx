@@ -52,6 +52,16 @@ export default function Hero() {
 
       {/* Content — centered, max-width constrained */}
       <div className="relative z-10 flex flex-col items-center text-center px-5 sm:px-8 py-24 sm:py-28 lg:py-32 safe-top w-full max-w-[900px] mx-auto">
+        {/* Hindu invocation */}
+        <div className="overflow-hidden mb-4 sm:mb-5 lg:mb-6">
+          <p
+            className="hero-line text-[var(--gold)] text-sm sm:text-base lg:text-lg tracking-wide"
+            style={{ fontFamily: "serif" }}
+          >
+            || श्री गणेशाय नमः ||
+          </p>
+        </div>
+
         <div className="overflow-hidden">
           <p
             className="hero-line text-[var(--gold-light)] tracking-[0.25em] sm:tracking-[0.3em] uppercase text-[11px] sm:text-xs lg:text-base mb-3 lg:mb-5"

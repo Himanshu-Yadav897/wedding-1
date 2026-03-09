@@ -22,7 +22,7 @@ const events = [
   {
     name: "Wedding Ceremony",
     time: "7:30 PM",
-    description: "The sacred union of two hearts, blessed under the stars at the palace grounds.",
+    description: "The sacred union of two souls with Vedic rituals, saat pheras, and blessings under the stars at the palace grounds.",
   },
   {
     name: "Reception",
