@@ -66,11 +66,11 @@ export default function Gallery() {
   );
 
   return (
-    <section ref={sectionRef} className="py-20 sm:py-28 lg:py-40 bg-[var(--cream)]">
+    <section ref={sectionRef} className="py-24 sm:py-32 lg:py-44 bg-[var(--cream)]">
       {/* Section title */}
-      <div className="section-container text-center mb-10 sm:mb-14 lg:mb-20">
+      <div className="section-container text-center mb-14 sm:mb-18 lg:mb-24">
         <p
-          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-3"
+          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-4 sm:mb-5"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
           Moments

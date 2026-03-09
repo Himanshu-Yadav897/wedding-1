@@ -80,30 +80,30 @@ export default function SaveTheDate() {
       </div>
 
       {/* Content — centered, max-width constrained */}
-      <div className="relative z-10 text-center px-5 sm:px-8 py-20 w-full max-w-[800px] mx-auto safe-top safe-bottom">
+      <div className="relative z-10 text-center px-5 sm:px-8 py-28 sm:py-32 lg:py-36 w-full max-w-[800px] mx-auto safe-top safe-bottom">
         <p
-          className="text-[var(--gold-light)] tracking-[0.25em] uppercase text-[10px] sm:text-xs lg:text-sm mb-4 sm:mb-5 lg:mb-6"
+          className="text-[var(--gold-light)] tracking-[0.25em] uppercase text-[10px] sm:text-xs lg:text-sm mb-5 sm:mb-6 lg:mb-8"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
           Save the Date
         </p>
 
         <h2
-          className="save-title text-white text-[10vw] sm:text-[7vw] lg:text-[64px] xl:text-[72px] font-light mb-3 lg:mb-4"
+          className="save-title text-white text-[10vw] sm:text-[7vw] lg:text-[64px] xl:text-[72px] font-light mb-5 sm:mb-6 lg:mb-8"
           style={{ fontFamily: "var(--font-cormorant)" }}
         >
           April 18–19, 2026
         </h2>
 
         <p
-          className="text-white/60 text-[15px] sm:text-base lg:text-lg mb-10 sm:mb-12 lg:mb-14 max-w-[480px] mx-auto"
+          className="text-white/60 text-[15px] sm:text-base lg:text-lg mb-12 sm:mb-14 lg:mb-16 max-w-[480px] mx-auto"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
           The countdown to forever has begun
         </p>
 
         {/* Countdown — always 4 cols, constrained width */}
-        <div className="countdown-grid grid grid-cols-4 gap-3 sm:gap-6 lg:gap-8 max-w-xs sm:max-w-sm lg:max-w-[520px] mx-auto mb-10 sm:mb-12 lg:mb-14">
+        <div className="countdown-grid grid grid-cols-4 gap-3 sm:gap-6 lg:gap-8 max-w-xs sm:max-w-sm lg:max-w-[520px] mx-auto mb-12 sm:mb-14 lg:mb-16">
           {[
             { value: days, label: "Days", labelFull: "Days" },
             { value: hours, label: "Hours", labelFull: "Hours" },

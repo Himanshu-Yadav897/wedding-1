@@ -60,11 +60,11 @@ export default function Venue() {
   );
 
   return (
-    <section ref={sectionRef} className="py-20 sm:py-28 lg:py-40 bg-[var(--black-deep)] relative">
+    <section ref={sectionRef} className="py-24 sm:py-32 lg:py-44 bg-[var(--black-deep)] relative">
       {/* Section title */}
-      <div className="section-container text-center mb-10 sm:mb-14 lg:mb-20">
+      <div className="section-container text-center mb-14 sm:mb-18 lg:mb-24">
         <p
-          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-3"
+          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-4 sm:mb-5"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
           The Celebration
@@ -78,9 +78,9 @@ export default function Venue() {
       </div>
 
       {/* Venue Info — constrained center */}
-      <div className="venue-info w-full max-w-[900px] mx-auto text-center mb-14 sm:mb-20 lg:mb-28 px-5 sm:px-8">
+      <div className="venue-info w-full max-w-[900px] mx-auto text-center mb-16 sm:mb-24 lg:mb-32 px-5 sm:px-8">
         {/* Venue image — fixed 16:9 on desktop, portrait on mobile */}
-        <div className="relative w-full aspect-[3/4] sm:aspect-[4/3] lg:aspect-[16/9] rounded-xl sm:rounded-lg lg:rounded-sm overflow-hidden mb-8 sm:mb-8 lg:mb-10">
+        <div className="relative w-full aspect-[3/4] sm:aspect-[4/3] lg:aspect-[16/9] rounded-xl sm:rounded-lg lg:rounded-sm overflow-hidden mb-10 sm:mb-12 lg:mb-14">
           <Image
             src="/S&A/DSC05174.JPG"
             alt="Taj Usha Kiran Palace"
@@ -115,7 +115,7 @@ export default function Venue() {
         </p>
 
         {/* Date row */}
-        <div className="mt-6 sm:mt-7 lg:mt-8 flex flex-row items-center justify-center gap-4 sm:gap-5 lg:gap-8">
+        <div className="mt-10 sm:mt-12 lg:mt-14 flex flex-row items-center justify-center gap-4 sm:gap-5 lg:gap-8">
           <div className="text-center">
             <p
               className="text-[var(--gold)] text-2xl sm:text-3xl lg:text-5xl font-light"

@@ -51,7 +51,7 @@ export default function Hero() {
       </div>
 
       {/* Content — centered, max-width constrained */}
-      <div className="relative z-10 flex flex-col items-center text-center px-5 sm:px-8 py-16 safe-top w-full max-w-[900px] mx-auto">
+      <div className="relative z-10 flex flex-col items-center text-center px-5 sm:px-8 py-24 sm:py-28 lg:py-32 safe-top w-full max-w-[900px] mx-auto">
         <div className="overflow-hidden">
           <p
             className="hero-line text-[var(--gold-light)] tracking-[0.25em] sm:tracking-[0.3em] uppercase text-[11px] sm:text-xs lg:text-base mb-3 lg:mb-5"
@@ -61,7 +61,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="overflow-hidden">
+        <div className="overflow-hidden mt-2 sm:mt-3 lg:mt-4">
           <h1
             className="hero-line text-white text-[11vw] sm:text-[8vw] lg:text-[80px] xl:text-[96px] font-light leading-[1.1]"
             style={{ fontFamily: "var(--font-cormorant)" }}
@@ -70,7 +70,7 @@ export default function Hero() {
           </h1>
         </div>
 
-        <div className="overflow-hidden my-1 sm:my-2 lg:my-4">
+        <div className="overflow-hidden my-3 sm:my-4 lg:my-6">
           <p
             className="hero-line text-[var(--gold-light)] text-xl sm:text-2xl lg:text-4xl italic font-light"
             style={{ fontFamily: "var(--font-cormorant)" }}
@@ -88,7 +88,7 @@ export default function Hero() {
           </h1>
         </div>
 
-        <div className="hero-date mt-6 sm:mt-8 lg:mt-12">
+        <div className="hero-date mt-10 sm:mt-12 lg:mt-16">
           <div className="ornament">
             <span
               className="text-[var(--gold-light)] tracking-[0.2em] uppercase text-[11px] sm:text-xs lg:text-base"
@@ -100,7 +100,7 @@ export default function Hero() {
         </div>
 
         <p
-          className="hero-venue text-white/70 mt-3 lg:mt-4 tracking-[0.12em] sm:tracking-[0.15em] uppercase text-[10px] sm:text-xs lg:text-sm"
+          className="hero-venue text-white/70 mt-4 sm:mt-5 lg:mt-6 tracking-[0.12em] sm:tracking-[0.15em] uppercase text-[10px] sm:text-xs lg:text-sm"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
           Taj Usha Kiran Palace · Gwalior

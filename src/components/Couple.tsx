@@ -40,11 +40,11 @@ export default function Couple() {
   );
 
   return (
-    <section ref={sectionRef} className="py-20 sm:py-28 lg:py-40 bg-[var(--cream)]">
+    <section ref={sectionRef} className="py-24 sm:py-32 lg:py-44 bg-[var(--cream)]">
       {/* Section title */}
-      <div className="section-container text-center mb-12 sm:mb-16 lg:mb-28">
+      <div className="section-container text-center mb-14 sm:mb-20 lg:mb-28">
         <p
-          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-3"
+          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-4 sm:mb-5"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
           The Couple
@@ -58,7 +58,7 @@ export default function Couple() {
       </div>
 
       {/* Groom */}
-      <div className="groom-block section-container flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16 mb-20 sm:mb-24 lg:mb-32">
+      <div className="groom-block section-container flex flex-col lg:flex-row items-center gap-10 sm:gap-14 lg:gap-16 mb-24 sm:mb-28 lg:mb-36">
         <div className="groom-img relative w-[90%] mx-auto sm:w-[80%] lg:w-[480px] lg:mx-0 lg:shrink-0 aspect-[3/4] overflow-hidden rounded-xl sm:rounded-lg lg:rounded-sm">
           <Image
             src="/S&A/DSC03134.JPG"
@@ -70,13 +70,13 @@ export default function Couple() {
         </div>
         <div className="groom-text flex-1 text-center lg:text-left px-6 sm:px-10 lg:px-0">
           <p
-            className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-2 sm:mb-3"
+            className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4"
             style={{ fontFamily: "var(--font-cormorant-garamond)" }}
           >
             The Groom
           </p>
           <h3
-            className="text-3xl sm:text-4xl lg:text-5xl font-light mb-4 sm:mb-5 lg:mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-light mb-5 sm:mb-6 lg:mb-8"
             style={{ fontFamily: "var(--font-cormorant)" }}
           >
             Shreyansh
@@ -92,7 +92,7 @@ export default function Couple() {
       </div>
 
       {/* Bride */}
-      <div className="bride-block section-container flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-10 lg:gap-16">
+      <div className="bride-block section-container flex flex-col lg:flex-row-reverse items-center gap-10 sm:gap-14 lg:gap-16">
         <div className="bride-img relative w-[90%] mx-auto sm:w-[80%] lg:w-[480px] lg:mx-0 lg:shrink-0 aspect-[3/4] overflow-hidden rounded-xl sm:rounded-lg lg:rounded-sm">
           <Image
             src="/S&A/DSC03168.JPG"
@@ -104,13 +104,13 @@ export default function Couple() {
         </div>
         <div className="bride-text flex-1 text-center lg:text-right px-6 sm:px-10 lg:px-0">
           <p
-            className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-2 sm:mb-3"
+            className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4"
             style={{ fontFamily: "var(--font-cormorant-garamond)" }}
           >
             The Bride
           </p>
           <h3
-            className="text-3xl sm:text-4xl lg:text-5xl font-light mb-4 sm:mb-5 lg:mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-light mb-5 sm:mb-6 lg:mb-8"
             style={{ fontFamily: "var(--font-cormorant)" }}
           >
             Ankita

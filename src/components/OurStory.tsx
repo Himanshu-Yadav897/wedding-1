@@ -69,11 +69,11 @@ export default function OurStory() {
   );
 
   return (
-    <section ref={sectionRef} className="py-20 sm:py-28 lg:py-40 bg-[var(--black-deep)]">
+    <section ref={sectionRef} className="py-24 sm:py-32 lg:py-44 bg-[var(--black-deep)]">
       {/* Section title */}
-      <div className="section-container text-center mb-12 sm:mb-16 lg:mb-28">
+      <div className="section-container text-center mb-14 sm:mb-20 lg:mb-28">
         <p
-          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-3"
+          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-4 sm:mb-5"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
           Our Love Story
@@ -87,13 +87,13 @@ export default function OurStory() {
       </div>
 
       {/* Story items */}
-      <div className="section-container space-y-20 sm:space-y-24 lg:space-y-32">
+      <div className="section-container space-y-24 sm:space-y-28 lg:space-y-36">
         {storyImages.map((img, i) => (
           <div
             key={i}
             className={`story-item flex flex-col ${
               i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-            } items-center gap-8 sm:gap-10 lg:gap-14`}
+            } items-center gap-10 sm:gap-14 lg:gap-16`}
           >
             {/* Image — fixed 420px width on desktop */}
             <div className="story-img relative w-[90%] mx-auto sm:w-[80%] lg:w-[420px] lg:mx-0 lg:shrink-0 aspect-[4/5] overflow-hidden rounded-xl sm:rounded-lg lg:rounded-sm">
@@ -113,13 +113,13 @@ export default function OurStory() {
               }`}
             >
               <p
-                className="text-[var(--gold)] tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-2"
+                className="text-[var(--gold)] tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4"
                 style={{ fontFamily: "var(--font-cormorant-garamond)" }}
               >
                 Chapter {i + 1}
               </p>
               <h3
-                className="text-white text-2xl sm:text-3xl lg:text-4xl font-light mb-3 lg:mb-4"
+                className="text-white text-2xl sm:text-3xl lg:text-4xl font-light mb-4 sm:mb-5 lg:mb-6"
                 style={{ fontFamily: "var(--font-cormorant)" }}
               >
                 {storyTexts[i].title}
