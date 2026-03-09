@@ -66,7 +66,7 @@ export default function Gallery() {
   );
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-24 lg:py-40 bg-[var(--cream)]">
+    <section ref={sectionRef} className="py-20 sm:py-28 lg:py-40 bg-[var(--cream)]">
       {/* Section title */}
       <div className="section-container text-center mb-10 sm:mb-14 lg:mb-20">
         <p
@@ -85,11 +85,11 @@ export default function Gallery() {
 
       {/* Grid gallery — clean, controlled layout */}
       <div className="w-full max-w-[1100px] mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-3 lg:gap-4">
           {galleryImages.map((img, i) => (
             <div
               key={i}
-              className={`gallery-item overflow-hidden rounded-sm ${
+              className={`gallery-item overflow-hidden rounded-lg sm:rounded-lg lg:rounded-sm ${
                 img.tall ? "row-span-2" : ""
               }`}
             >

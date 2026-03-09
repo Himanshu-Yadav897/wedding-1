@@ -40,7 +40,7 @@ export default function Couple() {
   );
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-24 lg:py-40 bg-[var(--cream)]">
+    <section ref={sectionRef} className="py-20 sm:py-28 lg:py-40 bg-[var(--cream)]">
       {/* Section title */}
       <div className="section-container text-center mb-12 sm:mb-16 lg:mb-28">
         <p
@@ -58,11 +58,11 @@ export default function Couple() {
       </div>
 
       {/* Groom */}
-      <div className="groom-block section-container flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-16 mb-16 sm:mb-20 lg:mb-32">
-        <div className="groom-img relative w-full sm:w-[80%] sm:mx-auto lg:w-[480px] lg:mx-0 lg:shrink-0 aspect-[3/4] overflow-hidden sm:rounded-sm">
+      <div className="groom-block section-container flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16 mb-20 sm:mb-24 lg:mb-32">
+        <div className="groom-img relative w-[90%] mx-auto sm:w-[80%] lg:w-[480px] lg:mx-0 lg:shrink-0 aspect-[3/4] overflow-hidden rounded-xl sm:rounded-lg lg:rounded-sm">
           <Image
             src="/S&A/DSC03134.JPG"
-            alt="Sheryansh"
+            alt="Shreyansh"
             fill
             className="object-cover"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 480px"
@@ -79,7 +79,7 @@ export default function Couple() {
             className="text-3xl sm:text-4xl lg:text-5xl font-light mb-4 sm:mb-5 lg:mb-6"
             style={{ fontFamily: "var(--font-cormorant)" }}
           >
-            Sheryansh
+            Shreyansh
           </h3>
           <p
             className="text-[var(--text-muted)] text-base sm:text-lg lg:text-xl leading-relaxed max-w-md mx-auto lg:mx-0"
@@ -92,11 +92,11 @@ export default function Couple() {
       </div>
 
       {/* Bride */}
-      <div className="bride-block section-container flex flex-col lg:flex-row-reverse items-center gap-6 sm:gap-8 lg:gap-16">
-        <div className="bride-img relative w-full sm:w-[80%] sm:mx-auto lg:w-[480px] lg:mx-0 lg:shrink-0 aspect-[3/4] overflow-hidden sm:rounded-sm">
+      <div className="bride-block section-container flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-10 lg:gap-16">
+        <div className="bride-img relative w-[90%] mx-auto sm:w-[80%] lg:w-[480px] lg:mx-0 lg:shrink-0 aspect-[3/4] overflow-hidden rounded-xl sm:rounded-lg lg:rounded-sm">
           <Image
             src="/S&A/DSC03168.JPG"
-            alt="Akanksha"
+            alt="Ankita"
             fill
             className="object-cover"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 480px"
@@ -113,7 +113,7 @@ export default function Couple() {
             className="text-3xl sm:text-4xl lg:text-5xl font-light mb-4 sm:mb-5 lg:mb-6"
             style={{ fontFamily: "var(--font-cormorant)" }}
           >
-            Akanksha
+            Ankita
           </h3>
           <p
             className="text-[var(--text-muted)] text-base sm:text-lg lg:text-xl leading-relaxed max-w-md mx-auto lg:ml-auto"

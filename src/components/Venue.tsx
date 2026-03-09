@@ -60,7 +60,7 @@ export default function Venue() {
   );
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-24 lg:py-40 bg-[var(--black-deep)] relative">
+    <section ref={sectionRef} className="py-20 sm:py-28 lg:py-40 bg-[var(--black-deep)] relative">
       {/* Section title */}
       <div className="section-container text-center mb-10 sm:mb-14 lg:mb-20">
         <p
@@ -80,7 +80,7 @@ export default function Venue() {
       {/* Venue Info — constrained center */}
       <div className="venue-info w-full max-w-[900px] mx-auto text-center mb-14 sm:mb-20 lg:mb-28 px-5 sm:px-8">
         {/* Venue image — fixed 16:9 on desktop, portrait on mobile */}
-        <div className="relative w-full aspect-[3/4] sm:aspect-[4/3] lg:aspect-[16/9] rounded-sm overflow-hidden mb-6 sm:mb-8 lg:mb-10">
+        <div className="relative w-full aspect-[3/4] sm:aspect-[4/3] lg:aspect-[16/9] rounded-xl sm:rounded-lg lg:rounded-sm overflow-hidden mb-8 sm:mb-8 lg:mb-10">
           <Image
             src="/S&A/DSC05174.JPG"
             alt="Taj Usha Kiran Palace"
@@ -121,7 +121,7 @@ export default function Venue() {
               className="text-[var(--gold)] text-2xl sm:text-3xl lg:text-5xl font-light"
               style={{ fontFamily: "var(--font-cormorant)" }}
             >
-              7
+              18–19
             </p>
             <p className="text-white/50 text-[9px] sm:text-[10px] lg:text-xs tracking-[0.2em] uppercase mt-0.5">April</p>
           </div>
@@ -153,7 +153,7 @@ export default function Venue() {
         {/* Vertical line — left on mobile/tablet, center on lg */}
         <div className="timeline-line absolute left-5 sm:left-8 lg:left-1/2 lg:-translate-x-1/2 top-0 bottom-0 w-px bg-[var(--gold)]/30" />
 
-        <div className="space-y-8 sm:space-y-10 lg:space-y-14">
+        <div className="space-y-10 sm:space-y-12 lg:space-y-14">
           {events.map((event, i) => (
             <div
               key={i}

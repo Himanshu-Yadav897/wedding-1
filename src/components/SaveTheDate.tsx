@@ -44,7 +44,7 @@ function useCountdown(targetDate: Date) {
 
 export default function SaveTheDate() {
   const sectionRef = useRef<HTMLElement>(null);
-  const weddingDate = new Date("2026-04-07T19:30:00+05:30");
+  const weddingDate = new Date("2026-04-18T11:00:00+05:30");
   const { days, hours, minutes, seconds } = useCountdown(weddingDate);
 
   useGSAP(
@@ -80,7 +80,7 @@ export default function SaveTheDate() {
       </div>
 
       {/* Content — centered, max-width constrained */}
-      <div className="relative z-10 text-center px-5 sm:px-8 py-16 w-full max-w-[800px] mx-auto safe-top safe-bottom">
+      <div className="relative z-10 text-center px-5 sm:px-8 py-20 w-full max-w-[800px] mx-auto safe-top safe-bottom">
         <p
           className="text-[var(--gold-light)] tracking-[0.25em] uppercase text-[10px] sm:text-xs lg:text-sm mb-4 sm:mb-5 lg:mb-6"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
@@ -92,7 +92,7 @@ export default function SaveTheDate() {
           className="save-title text-white text-[10vw] sm:text-[7vw] lg:text-[64px] xl:text-[72px] font-light mb-3 lg:mb-4"
           style={{ fontFamily: "var(--font-cormorant)" }}
         >
-          April 7, 2026
+          April 18–19, 2026
         </h2>
 
         <p

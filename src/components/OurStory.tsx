@@ -69,7 +69,7 @@ export default function OurStory() {
   );
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-24 lg:py-40 bg-[var(--black-deep)]">
+    <section ref={sectionRef} className="py-20 sm:py-28 lg:py-40 bg-[var(--black-deep)]">
       {/* Section title */}
       <div className="section-container text-center mb-12 sm:mb-16 lg:mb-28">
         <p
@@ -87,16 +87,16 @@ export default function OurStory() {
       </div>
 
       {/* Story items */}
-      <div className="section-container space-y-14 sm:space-y-20 lg:space-y-32">
+      <div className="section-container space-y-20 sm:space-y-24 lg:space-y-32">
         {storyImages.map((img, i) => (
           <div
             key={i}
             className={`story-item flex flex-col ${
               i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-            } items-center gap-5 sm:gap-8 lg:gap-14`}
+            } items-center gap-8 sm:gap-10 lg:gap-14`}
           >
             {/* Image — fixed 420px width on desktop */}
-            <div className="story-img relative w-full sm:w-[80%] sm:mx-auto lg:w-[420px] lg:mx-0 lg:shrink-0 aspect-[4/5] overflow-hidden sm:rounded-sm">
+            <div className="story-img relative w-[90%] mx-auto sm:w-[80%] lg:w-[420px] lg:mx-0 lg:shrink-0 aspect-[4/5] overflow-hidden rounded-xl sm:rounded-lg lg:rounded-sm">
               <Image
                 src={img.src}
                 alt={img.alt}

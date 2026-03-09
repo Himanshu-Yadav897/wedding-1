@@ -40,7 +40,7 @@ export default function Hero() {
       <div className="hero-image absolute inset-0 z-0">
         <Image
           src="/S&A/DSC05170.JPG"
-          alt="Sheryansh & Akanksha"
+          alt="Shreyansh & Ankita"
           fill
           className="object-cover object-center"
           priority
@@ -66,7 +66,7 @@ export default function Hero() {
             className="hero-line text-white text-[11vw] sm:text-[8vw] lg:text-[80px] xl:text-[96px] font-light leading-[1.1]"
             style={{ fontFamily: "var(--font-cormorant)" }}
           >
-            Sheryansh
+            Shreyansh
           </h1>
         </div>
 
@@ -84,7 +84,7 @@ export default function Hero() {
             className="hero-line text-white text-[11vw] sm:text-[8vw] lg:text-[80px] xl:text-[96px] font-light leading-[1.1]"
             style={{ fontFamily: "var(--font-cormorant)" }}
           >
-            Akanksha
+            Ankita
           </h1>
         </div>
 
@@ -94,7 +94,7 @@ export default function Hero() {
               className="text-[var(--gold-light)] tracking-[0.2em] uppercase text-[11px] sm:text-xs lg:text-base"
               style={{ fontFamily: "var(--font-cormorant-garamond)" }}
             >
-              April 7, 2026
+              April 18–19, 2026
             </span>
           </div>
         </div>

@@ -25,12 +25,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Sheryansh & Akanksha — Wedding Invitation",
+  title: "Shreyansh & Ankita — Wedding Invitation",
   description:
-    "Join us in celebrating the union of Sheryansh & Akanksha on April 7, 2026 at Taj Usha Kiran Palace, Gwalior.",
+    "Join us in celebrating the union of Shreyansh & Ankita on April 18-19, 2026 at Taj Usha Kiran Palace, Gwalior.",
   openGraph: {
-    title: "Sheryansh & Akanksha — Wedding Invitation",
-    description: "April 7, 2026 · Taj Usha Kiran Palace, Gwalior",
+    title: "Shreyansh & Ankita — Wedding Invitation",
+    description: "April 18-19, 2026 · Taj Usha Kiran Palace, Gwalior",
     type: "website",
   },
 };

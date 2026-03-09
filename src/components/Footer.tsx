@@ -23,12 +23,12 @@ export default function Footer() {
             className="text-white/40 text-[11px] sm:text-xs lg:text-sm tracking-[0.2em] uppercase mb-6 sm:mb-7 lg:mb-8"
             style={{ fontFamily: "var(--font-cormorant-garamond)" }}
           >
-            #SheryanshWedsAkanksha
+            #ShreyanshWedsAnkita
           </p>
 
           <div className="ornament mb-6 sm:mb-7 lg:mb-8">
             <span className="text-white/30 text-[10px] sm:text-[11px] lg:text-xs tracking-widest uppercase">
-              07 · 04 · 2026
+              18–19 · 04 · 2026
             </span>
           </div>
 

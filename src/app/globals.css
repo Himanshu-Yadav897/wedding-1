@@ -167,6 +167,16 @@ img {
   }
 }
 
+/* Better mobile line spacing */
+@media (max-width: 767px) {
+  p {
+    line-height: 1.8;
+  }
+  h1, h2, h3, h4 {
+    line-height: 1.2;
+  }
+}
+
 /* Hide scrollbar on mobile for cleaner look */
 @media (max-width: 767px) {
   ::-webkit-scrollbar {
