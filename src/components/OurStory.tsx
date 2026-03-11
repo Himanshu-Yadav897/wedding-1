@@ -9,28 +9,42 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const storyImages = [
-  { src: "/S&A/DSC05121.JPG", alt: "The first glance" },
-  { src: "/S&A/DSC03152.JPG", alt: "Getting closer" },
-  { src: "/S&A/DSC05108.JPG", alt: "Pure happiness" },
-  { src: "/S&A/DSC03186.JPG", alt: "Together forever" },
+  {
+    src: "/Wedding Invitaion Gallery/Udaipur Ansh.jpg",
+    alt: "The surprise begins",
+  },
+  {
+    src: "/Wedding Invitaion Gallery/IMG_0796.JPG",
+    alt: "Walking together",
+  },
+  {
+    src: "/Wedding Invitaion Gallery/IMG_1306.jpg",
+    alt: "The proposal",
+  },
+  { src: "/Wedding Invitaion Gallery/IMG_1312.jpg", alt: "Together forever" },
+  { src: "/Wedding Invitaion Gallery/IMG_1820.JPG", alt: "Together forever" },
 ];
 
 const storyTexts = [
   {
-    title: "The Beginning",
-    text: "Some love stories begin with a grand gesture. Ours began with a simple smile — a moment so quiet, yet so unforgettable, that it changed everything.",
+    title: "The Beginning — When We Met",
+    text: "Some meetings are just coincidences… But some meetings are destiny gently introducing two souls. The day we met, we didn’t know it yet but our story had already begun.",
   },
   {
-    title: "The Journey",
-    text: "Through countless conversations, shared dreams, and stolen glances, two hearts discovered they spoke the same language — love.",
+    title: "The Journey — Dating Phase",
+    text: "From long conversations to shared dreams, our bond grew stronger with every passing day. Through laughter, adventures, and countless memories, we discovered that love isn’t just a feeling, it’s choosing each other every day. And somewhere along the journey, we knew this was forever.",
   },
   {
-    title: "The Promise",
-    text: "In every laugh, every quiet moment, and every adventure together, we found a love worth celebrating — a love that feels like home.",
+    title: "The Surprise — Bali Trip",
+    text: "What Ankita thought was just a beautiful birthday trip turned into the most unforgettable chapter of her story. Amidst the breathtaking beauty of Bali, he had secretly planned a surprise that would change her life forever. Little did she know that this trip would become the moment when their love story truly turned magical.",
   },
   {
-    title: "Forever",
-    text: "And now, surrounded by the people we cherish most, we begin the most beautiful chapter of our story — together, always.",
+    title: "The Promise — The Proposal",
+    text: "A moment filled with love, surprise, and a promise for a lifetime. When he went down on one knee, time seemed to pause. And with one “yes,” our forever officially began.",
+  },
+  {
+    title: "Forever Begins — The Roka",
+    text: "Surrounded by our families, blessings, and endless happiness, we came together to celebrate the beginning of our forever. The Roka marked not just the union of two hearts, but the coming together of two beautiful families. And with love, laughter, and blessings all around — our forever officially began...",
   },
 ];
 
@@ -60,16 +74,24 @@ export default function OurStory() {
           ease: "power3.inOut",
         }).from(
           text,
-          { y: isMobile ? 25 : 50, opacity: 0, duration: isMobile ? 0.5 : 0.8, ease: "power3.out" },
-          "-=0.4"
+          {
+            y: isMobile ? 25 : 50,
+            opacity: 0,
+            duration: isMobile ? 0.5 : 0.8,
+            ease: "power3.out",
+          },
+          "-=0.4",
         );
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
-    <section ref={sectionRef} className="py-24 sm:py-32 lg:py-44 bg-[var(--black-deep)]">
+    <section
+      ref={sectionRef}
+      className="py-24 sm:py-32 lg:py-44 bg-[var(--black-deep)]"
+    >
       {/* Section title */}
       <div className="section-container text-center mb-14 sm:mb-20 lg:mb-28">
         <p
@@ -80,9 +102,12 @@ export default function OurStory() {
         </p>
         <h2
           className="text-white text-3xl sm:text-4xl lg:text-6xl font-light"
-          style={{ fontFamily: "var(--font-cormorant)" }}
+          style={{ fontFamily: "var(--font-playfair)" }}
         >
-          Written in the Stars ✦ विधि का विधान
+          Written in the Stars
+          <br />
+          <br />{" "}
+          <span className="amita-regular amita-bold">✦ विधि का विधान ✦</span>
         </h2>
       </div>
 
@@ -120,7 +145,7 @@ export default function OurStory() {
               </p>
               <h3
                 className="text-white text-2xl sm:text-3xl lg:text-4xl font-light mb-5 sm:mb-6 lg:mb-8"
-                style={{ fontFamily: "var(--font-cormorant)" }}
+                style={{ fontFamily: "var(--font-playfair)" }}
               >
                 {storyTexts[i].title}
               </h3>

@@ -23,23 +23,28 @@ export default function Hero() {
         .from(".hero-venue", { y: 20, opacity: 0, duration: 0.6 }, "-=0.3")
         .from(
           ".hero-image",
-          { scale: 1.1, opacity: 0, duration: isMobile ? 1 : 1.5, ease: "power2.out" },
-          0
+          {
+            scale: 1.1,
+            opacity: 0,
+            duration: isMobile ? 1 : 1.5,
+            ease: "power2.out",
+          },
+          0,
         )
         .from(".hero-scroll", { opacity: 0, y: 10, duration: 0.5 }, "-=0.2");
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
     <section
       ref={containerRef}
-      className="relative flex min-h-screen-safe items-center justify-center overflow-hidden"
+      className="relative min-h-screen-safe overflow-hidden"
     >
       {/* Background image — covers full viewport */}
       <div className="hero-image absolute inset-0 z-0">
         <Image
-          src="/S&A/DSC05170.JPG"
+          src="/Wedding Invitaion Gallery/DSC05170.JPEG"
           alt="Shreyansh & Ankita"
           fill
           className="object-cover object-center"
@@ -51,7 +56,7 @@ export default function Hero() {
       </div>
 
       {/* Content — centered, max-width constrained */}
-      <div className="relative z-10 flex flex-col items-center text-center px-5 sm:px-8 py-24 sm:py-28 lg:py-32 safe-top w-full max-w-[900px] mx-auto">
+      <div className="absolute top-[15dvh] sm:top-0 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-center px-5 sm:px-8 sm:pt-[8dvh] safe-top w-full max-w-[900px] max-h-[50dvh]">
         {/* Hindu invocation */}
         <div className="overflow-hidden mb-4 sm:mb-5 lg:mb-6">
           <p
@@ -71,34 +76,54 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="overflow-hidden mt-2 sm:mt-3 lg:mt-4">
+        <div className="overflow-hidden mt-1 sm:mt-2 lg:mt-3 px-4 py-1">
           <h1
-            className="hero-line text-white text-[11vw] sm:text-[8vw] lg:text-[80px] xl:text-[96px] font-light leading-[1.1]"
-            style={{ fontFamily: "var(--font-cormorant)" }}
+            className="hero-line text-white text-[9vw] sm:text-[7vw] lg:text-[72px] xl:text-[84px] leading-[1.3]"
+            style={{ fontFamily: "var(--font-carattere)" }}
           >
             Shreyansh
           </h1>
         </div>
-
-        <div className="overflow-hidden my-3 sm:my-4 lg:my-6">
+        <div className="overflow-hidden">
           <p
-            className="hero-line text-[var(--gold-light)] text-xl sm:text-2xl lg:text-4xl italic font-light"
-            style={{ fontFamily: "var(--font-cormorant)" }}
+            className="hero-line text-[var(--gold-light)] text-[10px] sm:text-xs lg:text-sm tracking-[0.15em]"
+            style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+          >
+            (S/o Mrs. Sarita &amp; Mr. Shiv Kumar Chauhan)
+          </p>
+        </div>
+
+        <div className="overflow-hidden my-1 sm:my-2 lg:my-3 px-4">
+          <p
+            className="hero-line text-[var(--gold-light)] text-xl sm:text-2xl lg:text-4xl"
+            style={{ fontFamily: "var(--font-script)" }}
           >
             &amp;
           </p>
         </div>
 
-        <div className="overflow-hidden">
+        <div className="overflow-hidden px-4 py-1">
           <h1
-            className="hero-line text-white text-[11vw] sm:text-[8vw] lg:text-[80px] xl:text-[96px] font-light leading-[1.1]"
-            style={{ fontFamily: "var(--font-cormorant)" }}
+            className="hero-line text-white text-[9vw] sm:text-[7vw] lg:text-[72px] xl:text-[84px] leading-[1.3]"
+            style={{ fontFamily: "var(--font-carattere)" }}
           >
             Ankita
           </h1>
         </div>
+        <div className="overflow-hidden">
+          {/* {we have to reduce the padding of y axis} */}
+          <p
+            className="hero-line text-[var(--gold-light)] text-[10px] sm:text-xs lg:text-sm tracking-[0.15em]"
+            style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+          >
+            (D/o Mrs. Nisha Devi &amp; Late Rajesh Singh Rajawat)
+          </p>
+        </div>
+      </div>
 
-        <div className="hero-date mt-10 sm:mt-12 lg:mt-16">
+      {/* Date & venue pinned near bottom */}
+      <div className="absolute bottom-24 sm:bottom-20 lg:bottom-24 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-center">
+        <div className="hero-date">
           <div className="ornament">
             <span
               className="text-[var(--gold-light)] tracking-[0.2em] uppercase text-[11px] sm:text-xs lg:text-base"

@@ -1,112 +1,483 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { useLenis } from "@/context/LenisContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/* ── Flip pages based on scroll progress (0→1) ─────────── */
+function flipPages(
+  leaves: HTMLDivElement[],
+  progress: number,
+  counterEl: HTMLSpanElement | null
+) {
+  const total = leaves.length;
+  leaves.forEach((page, i) => {
+    const pageStart = i / total;
+    const pageEnd = (i + 1) / total;
+
+    let p = 0;
+    if (progress >= pageEnd) p = 1;
+    else if (progress > pageStart) p = (progress - pageStart) / (pageEnd - pageStart);
+
+    const rotation = p * -180;
+    page.style.transform = `rotateY(${rotation}deg)`;
+    page.style.zIndex = rotation < -90 ? String(i + 1) : String(total * 2 - i);
+  });
+
+  if (counterEl) {
+    counterEl.textContent = `${Math.round(progress * total)} / ${total}`;
+  }
+}
+
+/* ── Image data ─────────────────────────────────────────── */
 const galleryImages = [
-  { src: "/S&A/DSC05181.JPG", tall: true },
-  { src: "/S&A/DSC03198.JPG", tall: false },
-  { src: "/S&A/DSC01322.JPG", tall: false },
-  { src: "/S&A/DSC05156.JPG", tall: false },
-  { src: "/S&A/DSC05194.JPG", tall: true },
-  { src: "/S&A/DSC01287.JPG", tall: false },
-  { src: "/S&A/DSC03184.JPG", tall: false },
-  { src: "/S&A/DSC05145.JPG", tall: false },
-  { src: "/S&A/DSC01335.JPG", tall: true },
+  "/Wedding Invitaion Gallery/Copy of IMG_7641.JPG",
+  "/Wedding Invitaion Gallery/IMG_1322.JPG",
+  "/Wedding Invitaion Gallery/Copy of IMG_7654.JPG",
+  "/Wedding Invitaion Gallery/IMG_1319.jpg",
+  "/Wedding Invitaion Gallery/Copy of DSC05128.jpeg",
+  "/Wedding Invitaion Gallery/IMG_1348.JPG",
+  "/Wedding Invitaion Gallery/IMG_0953.jpg",
+  "/Wedding Invitaion Gallery/Copy of IMG_4254.JPG",
+  "/Wedding Invitaion Gallery/IMG_6116.JPG",
 ] as const;
 
+interface BookPageData {
+  front: string | null;
+  back: string | null;
+}
+
+const innerPages: BookPageData[] = [];
+for (let i = 0; i < galleryImages.length; i += 2) {
+  innerPages.push({
+    front: galleryImages[i],
+    back: galleryImages[i + 1] ?? null,
+  });
+}
+
+const TOTAL_LEAVES = 1 + innerPages.length + 1;
+const SCROLL_PER_PAGE = 100;
+
+/* ── Sub-components ─────────────────────────────────────── */
+
+function FrontCover() {
+  return (
+    <div
+      className="absolute inset-0 flex flex-col items-center justify-center p-6 sm:p-8"
+      style={{
+        background: "var(--black-deep)",
+        border: "2px solid var(--gold)",
+        borderRadius: "0 4px 4px 0",
+        boxShadow: "inset 0 0 60px rgba(212, 168, 83, 0.06)",
+      }}
+    >
+      <div className="book-corner book-corner--tl" style={{ borderColor: "rgba(212,168,83,0.4)" }} />
+      <div className="book-corner book-corner--tr" style={{ borderColor: "rgba(212,168,83,0.4)" }} />
+      <div className="book-corner book-corner--bl" style={{ borderColor: "rgba(212,168,83,0.4)" }} />
+      <div className="book-corner book-corner--br" style={{ borderColor: "rgba(212,168,83,0.4)" }} />
+
+      <p className="text-[var(--gold)] text-2xl sm:text-3xl mb-4" style={{ fontFamily: "serif" }}>ॐ</p>
+      <h3 className="text-[var(--gold)] text-2xl sm:text-3xl lg:text-4xl" style={{ fontFamily: "var(--font-script)" }}>
+        Shreyansh
+      </h3>
+      <p className="text-[var(--gold-light)] text-base sm:text-lg my-1" style={{ fontFamily: "var(--font-script)" }}>
+        &amp;
+      </p>
+      <h3 className="text-[var(--gold)] text-2xl sm:text-3xl lg:text-4xl mb-5" style={{ fontFamily: "var(--font-script)" }}>
+        Ankita
+      </h3>
+      <div className="ornament mb-3">
+        <span
+          className="text-[var(--gold-light)] opacity-50 text-[9px] tracking-[0.3em] uppercase"
+          style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+        >
+          Our Moments
+        </span>
+      </div>
+      <p className="text-white/30 text-[10px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-cormorant-garamond)" }}>
+        April 2026
+      </p>
+    </div>
+  );
+}
+
+function BackCover() {
+  return (
+    <div
+      className="absolute inset-0 flex items-center justify-center"
+      style={{ background: "var(--black-deep)", border: "2px solid rgba(212,168,83,0.3)", borderRadius: "4px 0 0 4px" }}
+    >
+      <div className="book-corner book-corner--tl" style={{ borderColor: "rgba(212,168,83,0.25)" }} />
+      <div className="book-corner book-corner--tr" style={{ borderColor: "rgba(212,168,83,0.25)" }} />
+      <div className="book-corner book-corner--bl" style={{ borderColor: "rgba(212,168,83,0.25)" }} />
+      <div className="book-corner book-corner--br" style={{ borderColor: "rgba(212,168,83,0.25)" }} />
+    </div>
+  );
+}
+
+function DecorativeLast() {
+  return (
+    <div className="absolute inset-0 flex flex-col items-center justify-center" style={{ background: "var(--black-deep)", borderRadius: "4px 0 0 4px" }}>
+      <p className="text-[var(--gold)] text-3xl sm:text-4xl mb-3" style={{ fontFamily: "serif" }}>ॐ</p>
+      <p className="text-[var(--gold-light)] opacity-40 text-[10px] tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-cormorant-garamond)" }}>
+        शुभ विवाह
+      </p>
+    </div>
+  );
+}
+
+function CoverBack() {
+  return <div className="absolute inset-0" style={{ background: "var(--cream-dark)", borderRadius: "4px 0 0 4px" }} />;
+}
+
+function BackCoverInner() {
+  return <div className="absolute inset-0" style={{ background: "var(--cream-dark)", borderRadius: "0 4px 4px 0" }} />;
+}
+
+/* ── Main Gallery Component ─────────────────────────────── */
 export default function Gallery() {
   const sectionRef = useRef<HTMLElement>(null);
+  const bookPreviewRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const pageCounterRef = useRef<HTMLSpanElement>(null);
+  const savedScrollYRef = useRef(0);
+  const pageEls = useRef<(HTMLDivElement | null)[]>(new Array(TOTAL_LEAVES).fill(null));
+  const scrollTriggersRef = useRef<ScrollTrigger[]>([]);
 
+  /* Mobile touch refs */
+  const currentPageRef = useRef(0);
+  const touchStartYRef = useRef(0);
+  const isAnimatingRef = useRef(false);
+
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const lenis = useLenis();
+
+  /* Detect mobile once on mount */
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
+  const getPageRefCallback = useCallback(
+    (index: number) => (el: HTMLDivElement | null) => {
+      pageEls.current[index] = el;
+    },
+    []
+  );
+
+  // ── Entrance animation ──
   useGSAP(
     () => {
-      const isMobile = window.innerWidth < 768;
-      const images = gsap.utils.toArray<HTMLElement>(".gallery-item");
-
-      images.forEach((img, i) => {
-        gsap.from(img, {
-          y: isMobile ? 40 : 60,
-          opacity: 0,
-          duration: isMobile ? 0.6 : 0.8,
-          delay: isMobile ? 0 : i * 0.05,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: img,
-            start: isMobile ? "top 92%" : "top 88%",
-            toggleActions: "play none none none",
-          },
-        });
+      if (!bookPreviewRef.current) return;
+      gsap.from(bookPreviewRef.current, {
+        y: 60,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
       });
-
-      // Parallax on desktop only
-      if (!isMobile) {
-        images.forEach((img) => {
-          const inner = img.querySelector("img");
-          if (inner) {
-            gsap.to(inner, {
-              yPercent: -8,
-              ease: "none",
-              scrollTrigger: {
-                trigger: img,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true,
-              },
-            });
-          }
-        });
-      }
     },
     { scope: sectionRef }
   );
 
-  return (
-    <section ref={sectionRef} className="py-24 sm:py-32 lg:py-44 bg-[var(--cream)]">
-      {/* Section title */}
-      <div className="section-container text-center mb-14 sm:mb-18 lg:mb-24">
-        <p
-          className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-4 sm:mb-5"
-          style={{ fontFamily: "var(--font-cormorant-garamond)" }}
-        >
-          Moments
-        </p>
-        <h2
-          className="text-[var(--black)] text-3xl sm:text-4xl lg:text-6xl font-light"
-          style={{ fontFamily: "var(--font-cormorant)" }}
-        >
-          A Royal Affair
-        </h2>
-      </div>
+  const openBook = useCallback(() => {
+    savedScrollYRef.current = window.scrollY;
+    setIsFullscreen(true);
+  }, []);
 
-      {/* Masonry gallery — CSS columns for even distribution */}
-      <div className="w-full max-w-[1100px] mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="columns-2 lg:columns-3 gap-3 sm:gap-3 lg:gap-4">
-          {galleryImages.map((img, i) => (
+  const closeBook = useCallback(() => {
+    scrollTriggersRef.current.forEach((st) => st.kill());
+    scrollTriggersRef.current = [];
+    currentPageRef.current = 0;
+    isAnimatingRef.current = false;
+    setIsFullscreen(false);
+  }, []);
+
+  /* ── Mobile: animate to a specific page ── */
+  const goToPage = useCallback((targetPage: number) => {
+    if (isAnimatingRef.current) return;
+    const leaves = pageEls.current.filter(Boolean) as HTMLDivElement[];
+    if (leaves.length === 0) return;
+
+    const clamped = Math.max(0, Math.min(TOTAL_LEAVES, targetPage));
+    if (clamped === currentPageRef.current) return;
+
+    isAnimatingRef.current = true;
+    const fromP = currentPageRef.current / TOTAL_LEAVES;
+    const toP = clamped / TOTAL_LEAVES;
+    const obj = { p: fromP };
+
+    gsap.to(obj, {
+      p: toP,
+      duration: 0.5,
+      ease: "power2.inOut",
+      onUpdate: () => flipPages(leaves, obj.p, pageCounterRef.current),
+      onComplete: () => {
+        isAnimatingRef.current = false;
+      },
+    });
+    currentPageRef.current = clamped;
+
+    /* Fade hint after first interaction (desktop only) */
+    if (!isMobile) gsap.to(".book-scroll-hint", { opacity: 0, duration: 0.4 });
+  }, []);
+
+  /* ── Touch handlers (mobile — swipe left/right) ── */
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartYRef.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      const deltaX = touchStartYRef.current - e.changedTouches[0].clientX;
+      if (Math.abs(deltaX) < 40) return;
+
+      if (deltaX > 0) {
+        /* Swipe left → next page */
+        goToPage(currentPageRef.current + 1);
+      } else {
+        /* Swipe right → prev page */
+        goToPage(currentPageRef.current - 1);
+      }
+    },
+    [goToPage]
+  );
+
+  // ── Fullscreen side effects ──
+  useEffect(() => {
+    if (!isFullscreen) {
+      document.body.style.overflow = "";
+      lenis?.start();
+      if (savedScrollYRef.current > 0) {
+        window.scrollTo(0, savedScrollYRef.current);
+      }
+      setTimeout(() => ScrollTrigger.refresh(), 100);
+      return;
+    }
+
+    lenis?.stop();
+    document.body.style.overflow = "hidden";
+
+    const timer = setTimeout(() => {
+      const leaves = pageEls.current.filter(Boolean) as HTMLDivElement[];
+      if (leaves.length === 0) return;
+
+      /* Reset all pages */
+      currentPageRef.current = 0;
+      leaves.forEach((page, i) => {
+        page.style.transform = "rotateY(0deg)";
+        page.style.zIndex = String(leaves.length * 2 - i);
+      });
+
+      if (isMobile) {
+        /* Mobile: no ScrollTrigger — touch swipe handles everything */
+        if (pageCounterRef.current) {
+          pageCounterRef.current.textContent = `0 / ${TOTAL_LEAVES}`;
+        }
+        return;
+      }
+
+      /* Desktop: ScrollTrigger with scrub */
+      const container = scrollContainerRef.current;
+      if (!container) return;
+      container.scrollTop = 0;
+
+      const spacer = container.querySelector(".book-spacer") as HTMLElement;
+      if (!spacer) return;
+
+      const mainSt = ScrollTrigger.create({
+        trigger: spacer,
+        scroller: container,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.3,
+        onUpdate: (self) => {
+          flipPages(leaves, self.progress, pageCounterRef.current);
+        },
+      });
+      scrollTriggersRef.current.push(mainSt);
+
+      const hintSt = ScrollTrigger.create({
+        trigger: spacer,
+        scroller: container,
+        start: "top+=1 top",
+        onEnter: () => gsap.to(".book-scroll-hint", { opacity: 0, duration: 0.4 }),
+        onLeaveBack: () => gsap.to(".book-scroll-hint", { opacity: 1, duration: 0.4 }),
+      });
+      scrollTriggersRef.current.push(hintSt);
+    }, 150);
+
+    return () => {
+      clearTimeout(timer);
+      scrollTriggersRef.current.forEach((st) => st.kill());
+      scrollTriggersRef.current = [];
+    };
+  }, [isFullscreen, isMobile, lenis]);
+
+  // ── Escape key ──
+  useEffect(() => {
+    if (!isFullscreen) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeBook();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [isFullscreen, closeBook]);
+
+  return (
+    <>
+      <section ref={sectionRef} className="py-24 sm:py-32 lg:py-44 bg-[var(--cream)]">
+        <div className="section-container text-center mb-14 sm:mb-18 lg:mb-24">
+          <p
+            className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-4 sm:mb-5"
+            style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+          >
+            Moments
+          </p>
+          <h2
+            className="text-[var(--black)] text-3xl sm:text-4xl lg:text-6xl font-light"
+            style={{ fontFamily: "var(--font-playfair)" }}
+          >
+            A Royal Affair
+          </h2>
+        </div>
+
+        <div className="flex flex-col items-center">
+          <div
+            ref={bookPreviewRef}
+            onClick={openBook}
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") openBook(); }}
+            role="button"
+            tabIndex={0}
+            aria-label="Photo gallery book. Click to open full screen."
+            className="cursor-pointer"
+            style={{ perspective: "1800px" }}
+          >
             <div
-              key={i}
-              className="gallery-item overflow-hidden rounded-lg sm:rounded-lg lg:rounded-sm mb-3 lg:mb-4 break-inside-avoid"
+              className="relative w-[220px] h-[308px] sm:w-[300px] sm:h-[420px] lg:w-[360px] lg:h-[500px]"
+              style={{ transformStyle: "preserve-3d" }}
             >
-              <div className="relative overflow-hidden group cursor-pointer w-full">
-                <div className={`relative w-full ${img.tall ? "aspect-[3/5]" : "aspect-[4/5]"}`}>
-                  <Image
-                    src={img.src}
-                    alt={`Gallery photo ${i + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-700 sm:group-hover:scale-105"
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 350px"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-black/0 sm:group-hover:bg-black/15 transition-all duration-500" />
+              <div className="book-page" style={{ zIndex: TOTAL_LEAVES * 2 }}>
+                <div className="book-face"><FrontCover /></div>
+                <div className="book-face book-face-back"><CoverBack /></div>
               </div>
             </div>
-          ))}
+          </div>
+
+          <p
+            className="mt-6 text-[var(--text-muted)] text-[11px] sm:text-xs tracking-[0.2em] uppercase animate-pulse"
+            style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+          >
+            Tap to open album
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ── Fullscreen 3D Book ── */}
+      {isFullscreen && (
+        <div className="fixed inset-0 z-50 bg-[var(--black-deep)]">
+          <button
+            onClick={closeBook}
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 z-[60] text-[var(--gold)] border border-[var(--gold)]/30 rounded-none w-11 h-11 flex items-center justify-center hover:bg-[var(--gold)] hover:text-[var(--black-deep)] transition-all duration-300"
+            aria-label="Close gallery"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[60]">
+            <span
+              ref={pageCounterRef}
+              className="text-white/40 text-xs tracking-[0.2em] uppercase"
+              style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+            >
+              0 / {TOTAL_LEAVES}
+            </span>
+          </div>
+
+          <div className="book-scroll-hint absolute bottom-14 left-1/2 -translate-x-1/2 z-[60]">
+            <p className="text-white/30 text-[10px] tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-cormorant-garamond)" }}>
+              {isMobile ? "← Flip the page →" : "Scroll to flip pages"}
+            </p>
+          </div>
+
+          {/* Container: scrollable on desktop, static with touch on mobile */}
+          <div
+            ref={scrollContainerRef}
+            data-lenis-prevent
+            className={`book-scroll-container w-full overflow-x-hidden ${
+              isMobile ? "overflow-hidden" : "overflow-y-auto"
+            }`}
+            style={{ height: "100dvh", overscrollBehavior: "contain" }}
+            onTouchStart={isMobile ? handleTouchStart : undefined}
+            onTouchEnd={isMobile ? handleTouchEnd : undefined}
+          >
+            <div
+              className="book-spacer"
+              style={{
+                height: isMobile
+                  ? "100dvh"
+                  : `${(TOTAL_LEAVES + 1) * SCROLL_PER_PAGE}vh`,
+              }}
+            >
+              <div
+                className={`${isMobile ? "" : "sticky"} top-0 w-full overflow-hidden`}
+                style={{ perspective: "1600px", height: "100dvh" }}
+              >
+                {/* Book spine sits at horizontal center */}
+                <div
+                  className="absolute left-1/2 top-1/2 -translate-y-1/2 w-[46vw] h-[64vw] sm:w-[min(48vw,340px)] sm:h-[min(67vw,476px)] lg:w-[min(42vw,420px)] lg:h-[min(59vw,588px)]"
+                  style={{ transformStyle: "preserve-3d", maxHeight: "72vh" }}
+                >
+                  <div ref={getPageRefCallback(0)} className="book-page" style={{ zIndex: TOTAL_LEAVES * 2 }}>
+                    <div className="book-face"><FrontCover /></div>
+                    <div className="book-face book-face-back"><CoverBack /></div>
+                  </div>
+
+                  {innerPages.map((page, i) => (
+                    <div
+                      key={i}
+                      ref={getPageRefCallback(i + 1)}
+                      className="book-page"
+                      style={{ zIndex: (TOTAL_LEAVES - (i + 1)) * 2 }}
+                    >
+                      <div className="book-face">
+                        {page.front ? (
+                          <Image src={page.front} alt={`Gallery photo ${i * 2 + 1}`} fill className="object-cover" sizes="(max-width: 640px) 46vw, 420px" loading={i > 1 ? "lazy" : "eager"} />
+                        ) : (
+                          <div className="absolute inset-0 bg-[var(--cream-dark)]" />
+                        )}
+                      </div>
+                      <div className="book-face book-face-back">
+                        {page.back ? (
+                          <Image src={page.back} alt={`Gallery photo ${i * 2 + 2}`} fill className="object-cover" sizes="(max-width: 640px) 46vw, 420px" loading={i > 1 ? "lazy" : "eager"} />
+                        ) : (
+                          <DecorativeLast />
+                        )}
+                      </div>
+                    </div>
+                  ))}
+
+                  <div ref={getPageRefCallback(innerPages.length + 1)} className="book-page" style={{ zIndex: 1 }}>
+                    <div className="book-face"><BackCoverInner /></div>
+                    <div className="book-face book-face-back"><BackCover /></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

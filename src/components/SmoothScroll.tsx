@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "lenis";
+import { LenisContext } from "@/context/LenisContext";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+  const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
+
   useEffect(() => {
     const w = window.innerWidth;
     const isMobile = w < 768;
@@ -14,6 +17,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       touchMultiplier: isMobile ? 1.5 : isTablet ? 1.8 : 2,
     });
+
+    setLenisInstance(lenis);
 
     function raf(time: number) {
       lenis.raf(time);
@@ -27,5 +32,9 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     };
   }, []);
 
-  return <>{children}</>;
+  return (
+    <LenisContext.Provider value={lenisInstance}>
+      {children}
+    </LenisContext.Provider>
+  );
 }

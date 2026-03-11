@@ -25,13 +25,13 @@ export default function SplashScreen() {
         .from(
           ".splash-text",
           { y: 20, opacity: 0, duration: 0.7, ease: "power3.out" },
-          "-=0.4"
+          "-=0.4",
         )
         // Fade in shubh vivah
         .from(
           ".splash-subtext",
           { y: 15, opacity: 0, duration: 0.6, ease: "power3.out" },
-          "-=0.3"
+          "-=0.3",
         )
         // Hold
         .to({}, { duration: 1 })
@@ -42,7 +42,7 @@ export default function SplashScreen() {
           ease: "power2.inOut",
         });
     },
-    { scope: splashRef }
+    { scope: splashRef },
   );
 
   if (gone) return null;
@@ -60,21 +60,24 @@ export default function SplashScreen() {
         ॐ
       </div>
 
+      <img src="../../public/ganesha.png" alt="" />
+
       {/* Ganesh invocation */}
       <p
-        className="splash-text text-[var(--gold-light)] text-base sm:text-lg lg:text-xl tracking-wide mb-3 sm:mb-4"
+        className="splash-text text-[var(--gold-light)] text-base sm:text-lg lg:text-xl tracking-wide mb-4 sm:mb-5"
         style={{ fontFamily: "var(--font-cormorant-garamond)" }}
       >
-        || श्री गणेशाय नमः ||
+        ॥ श्री गणेशाय नमः ॥
       </p>
 
-      {/* Shubh Vivah */}
-      <p
-        className="splash-subtext text-white/40 text-xs sm:text-sm lg:text-base tracking-[0.3em] uppercase"
+      {/* Ganesh Shlok */}
+      <div
+        className="splash-subtext text-center text-white/50 text-xs sm:text-sm lg:text-base leading-relaxed"
         style={{ fontFamily: "var(--font-cormorant-garamond)" }}
       >
-        शुभ विवाह
-      </p>
+        <p>वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः।</p>
+        <p>निर्विघ्नं कुरु मे देव सर्व कार्येषु सर्वदा॥</p>
+      </div>
     </div>
   );
 }

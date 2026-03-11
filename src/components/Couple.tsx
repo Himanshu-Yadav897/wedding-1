@@ -20,27 +20,48 @@ export default function Couple() {
       const textStart = isMobile ? "top 75%" : "top 65%";
 
       gsap.from(".groom-img", {
-        clipPath: "inset(100% 0 0 0)", duration: dur, ease: "power3.inOut",
-        scrollTrigger: { trigger: ".groom-block", start, toggleActions: "play none none none" },
+        clipPath: "inset(100% 0 0 0)",
+        duration: dur,
+        ease: "power3.inOut",
+        scrollTrigger: {
+          trigger: ".groom-block",
+          start,
+          toggleActions: "play none none none",
+        },
       });
       gsap.from(".groom-text", {
-        y: isMobile ? 30 : 60, opacity: 0, duration: textDur, ease: "power3.out",
+        y: isMobile ? 30 : 60,
+        opacity: 0,
+        duration: textDur,
+        ease: "power3.out",
         scrollTrigger: { trigger: ".groom-block", start: textStart },
       });
       gsap.from(".bride-img", {
-        clipPath: "inset(100% 0 0 0)", duration: dur, ease: "power3.inOut",
-        scrollTrigger: { trigger: ".bride-block", start, toggleActions: "play none none none" },
+        clipPath: "inset(100% 0 0 0)",
+        duration: dur,
+        ease: "power3.inOut",
+        scrollTrigger: {
+          trigger: ".bride-block",
+          start,
+          toggleActions: "play none none none",
+        },
       });
       gsap.from(".bride-text", {
-        y: isMobile ? 30 : 60, opacity: 0, duration: textDur, ease: "power3.out",
+        y: isMobile ? 30 : 60,
+        opacity: 0,
+        duration: textDur,
+        ease: "power3.out",
         scrollTrigger: { trigger: ".bride-block", start: textStart },
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
-    <section ref={sectionRef} className="py-24 sm:py-32 lg:py-44 bg-[var(--cream)]">
+    <section
+      ref={sectionRef}
+      className="py-24 sm:py-32 lg:py-44 bg-[var(--cream)]"
+    >
       {/* Section title */}
       <div className="section-container text-center mb-14 sm:mb-20 lg:mb-28">
         <p
@@ -51,7 +72,7 @@ export default function Couple() {
         </p>
         <h2
           className="text-[var(--black)] text-3xl sm:text-4xl lg:text-6xl font-light"
-          style={{ fontFamily: "var(--font-cormorant)" }}
+          style={{ fontFamily: "var(--font-playfair)" }}
         >
           Two Souls, One Sacred Bond
         </h2>
@@ -61,7 +82,7 @@ export default function Couple() {
       <div className="groom-block section-container flex flex-col lg:flex-row items-center gap-10 sm:gap-14 lg:gap-16 mb-24 sm:mb-28 lg:mb-36">
         <div className="groom-img relative w-[90%] mx-auto sm:w-[80%] lg:w-[480px] lg:mx-0 lg:shrink-0 aspect-[3/4] overflow-hidden rounded-xl sm:rounded-lg lg:rounded-sm">
           <Image
-            src="/S&A/DSC03134.JPG"
+            src="/Wedding Invitaion Gallery/IMG_1682.JPG"
             alt="Shreyansh"
             fill
             className="object-cover"
@@ -76,8 +97,8 @@ export default function Couple() {
             The Groom
           </p>
           <h3
-            className="text-3xl sm:text-4xl lg:text-5xl font-light mb-6 sm:mb-8 lg:mb-10"
-            style={{ fontFamily: "var(--font-cormorant)" }}
+            className="text-4xl sm:text-5xl lg:text-6xl mb-6 sm:mb-8 lg:mb-10"
+            style={{ fontFamily: "var(--font-script)" }}
           >
             Shreyansh
           </h3>
@@ -85,8 +106,12 @@ export default function Couple() {
             className="text-[var(--text-muted)] text-base sm:text-lg lg:text-xl leading-relaxed max-w-md mx-auto lg:mx-0"
             style={{ fontFamily: "var(--font-cormorant-garamond)" }}
           >
-            A man of quiet strength and warm laughter, who believes that the
-            best things in life are the ones you share with someone special.
+            "A man with a calm heart, big dreams, and a smile that feels like
+            home. He believes in loyalty, laughter, and building a life full of
+            meaning. To me, he is not just a partner. He is my safe place and my
+            best friend."
+            <br />
+            <span className="ml-90"> ~ Ankita</span>
           </p>
         </div>
       </div>
@@ -95,7 +120,7 @@ export default function Couple() {
       <div className="bride-block section-container flex flex-col lg:flex-row-reverse items-center gap-10 sm:gap-14 lg:gap-16">
         <div className="bride-img relative w-[90%] mx-auto sm:w-[80%] lg:w-[480px] lg:mx-0 lg:shrink-0 aspect-[3/4] overflow-hidden rounded-xl sm:rounded-lg lg:rounded-sm">
           <Image
-            src="/S&A/DSC03168.JPG"
+            src="/Wedding Invitaion Gallery/IMG_3361.JPG"
             alt="Ankita"
             fill
             className="object-cover"
@@ -110,17 +135,19 @@ export default function Couple() {
             The Bride
           </p>
           <h3
-            className="text-3xl sm:text-4xl lg:text-5xl font-light mb-6 sm:mb-8 lg:mb-10"
-            style={{ fontFamily: "var(--font-cormorant)" }}
+            className="text-4xl sm:text-5xl lg:text-6xl mb-6 sm:mb-8 lg:mb-10"
+            style={{ fontFamily: "var(--font-script)" }}
           >
             Ankita
           </h3>
           <p
-            className="text-[var(--text-muted)] text-base sm:text-lg lg:text-xl leading-relaxed max-w-md mx-auto lg:ml-auto"
+            className="text-[var(--text-muted)] text-base sm:text-lg lg:text-xl max-w-md mx-auto lg:ml-auto"
             style={{ fontFamily: "var(--font-cormorant-garamond)" }}
           >
-            A woman of grace and radiance, whose smile lights up every room and
-            whose heart holds a universe of kindness.
+            "Graceful, determined, and full of life. She believes in love that
+            grows with time and dreams that grow together. Her smile lights up
+            every room, and now it lights up my world."
+            <br />~ Shreyansh
           </p>
         </div>
       </div>

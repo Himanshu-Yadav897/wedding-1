@@ -42,10 +42,11 @@ function useCountdown(targetDate: Date) {
   return timeLeft;
 }
 
+const WEDDING_DATE = new Date("2026-04-18T11:00:00+05:30");
+
 export default function SaveTheDate() {
   const sectionRef = useRef<HTMLElement>(null);
-  const weddingDate = new Date("2026-04-18T11:00:00+05:30");
-  const { days, hours, minutes, seconds } = useCountdown(weddingDate);
+  const { days, hours, minutes, seconds } = useCountdown(WEDDING_DATE);
 
   useGSAP(
     () => {
@@ -69,7 +70,7 @@ export default function SaveTheDate() {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/S&A/DSC05188.JPG"
+          src="/Wedding Invitaion Gallery/IMG_0939.jpg"
           alt="Background"
           fill
           className="object-cover object-center"
@@ -90,7 +91,7 @@ export default function SaveTheDate() {
 
         <h2
           className="save-title text-white text-[10vw] sm:text-[7vw] lg:text-[64px] xl:text-[72px] font-light mb-6 sm:mb-8 lg:mb-10"
-          style={{ fontFamily: "var(--font-cormorant)" }}
+          style={{ fontFamily: "var(--font-playfair)" }}
         >
           April 18–19, 2026
         </h2>
@@ -113,7 +114,7 @@ export default function SaveTheDate() {
             <div key={item.labelFull} className="countdown-item text-center">
               <p
                 className="text-white text-3xl sm:text-4xl lg:text-6xl font-light"
-                style={{ fontFamily: "var(--font-cormorant)" }}
+                style={{ fontFamily: "var(--font-playfair)" }}
               >
                 {String(item.value).padStart(2, "0")}
               </p>

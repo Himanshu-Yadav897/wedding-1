@@ -10,24 +10,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 const events = [
   {
-    name: "Mehendi",
-    time: "11:00 AM",
-    description: "A celebration of colours, intricate henna artistry, and joyous music.",
+    name: "Pushp Bahaar ",
+    time: "11:00 AM - 18th April 2026",
+    description:
+      "In this sacred ritual, haldi is applied to the bride and groom, blessing them with purity, prosperity, and a radiant beginning to their new journey.",
   },
   {
-    name: "Sangeet",
-    time: "4:00 PM",
-    description: "An evening of dance, music, and unforgettable performances by family & friends.",
+    name: "Ring in the Bling",
+    time: "4:00 PM - 18th April 2026",
+    description:
+      "The couple exchanges rings as a promise of togetherness, followed by an evening of music, dance, and celebration with family and friends.",
   },
   {
-    name: "Wedding Ceremony",
-    time: "7:30 PM",
-    description: "The sacred union of two souls with Vedic rituals, saat pheras, and blessings under the stars at the palace grounds.",
+    name: "Shahi Yatra",
+    time: "5:00 PM - 19th April 2026",
+    description:
+      "The groom’s grand royal procession as he arrives with joy, music, and celebration to seek his bride.",
   },
   {
-    name: "Reception",
-    time: "9:30 PM",
-    description: "A grand celebration with dinner, dancing, and memories to last a lifetime.",
+    name: "Mangal Sanskar",
+    time: "8:00 PM - 19th April 2026",
+    description:
+      "The couple exchanges garlands in acceptance of one another and takes the sacred Saat Phere around the holy fire, solemnizing their lifelong union.",
   },
 ];
 
@@ -39,28 +43,47 @@ export default function Venue() {
       const isMobile = window.innerWidth < 768;
 
       gsap.from(".venue-info", {
-        y: isMobile ? 30 : 60, opacity: 0, duration: isMobile ? 0.6 : 1, ease: "power3.out",
-        scrollTrigger: { trigger: ".venue-info", start: isMobile ? "top 90%" : "top 80%" },
+        y: isMobile ? 30 : 60,
+        opacity: 0,
+        duration: isMobile ? 0.6 : 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".venue-info",
+          start: isMobile ? "top 90%" : "top 80%",
+        },
       });
 
       const items = gsap.utils.toArray<HTMLElement>(".event-card");
       items.forEach((item, i) => {
         gsap.from(item, {
-          y: isMobile ? 30 : 60, opacity: 0, duration: isMobile ? 0.5 : 0.8, delay: i * 0.1, ease: "power3.out",
-          scrollTrigger: { trigger: item, start: isMobile ? "top 92%" : "top 85%" },
+          y: isMobile ? 30 : 60,
+          opacity: 0,
+          duration: isMobile ? 0.5 : 0.8,
+          delay: i * 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: item,
+            start: isMobile ? "top 92%" : "top 85%",
+          },
         });
       });
 
       gsap.from(".timeline-line", {
-        scaleY: 0, transformOrigin: "top", duration: 1.5, ease: "power3.inOut",
+        scaleY: 0,
+        transformOrigin: "top",
+        duration: 1.5,
+        ease: "power3.inOut",
         scrollTrigger: { trigger: ".timeline-container", start: "top 70%" },
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
-    <section ref={sectionRef} className="py-24 sm:py-32 lg:py-44 bg-[var(--black-deep)] relative">
+    <section
+      ref={sectionRef}
+      className="py-24 sm:py-32 lg:py-44 bg-[var(--black-deep)] relative"
+    >
       {/* Section title */}
       <div className="section-container text-center mb-14 sm:mb-18 lg:mb-24">
         <p
@@ -71,7 +94,7 @@ export default function Venue() {
         </p>
         <h2
           className="text-white text-3xl sm:text-4xl lg:text-6xl font-light"
-          style={{ fontFamily: "var(--font-cormorant)" }}
+          style={{ fontFamily: "var(--font-playfair)" }}
         >
           Where & When
         </h2>
@@ -92,7 +115,7 @@ export default function Venue() {
           <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 lg:bottom-6 lg:left-6 text-left">
             <h3
               className="text-white text-xl sm:text-2xl lg:text-3xl font-light"
-              style={{ fontFamily: "var(--font-cormorant)" }}
+              style={{ fontFamily: "var(--font-playfair)" }}
             >
               Taj Usha Kiran Palace
             </h3>
@@ -100,7 +123,7 @@ export default function Venue() {
               className="text-white/70 text-xs sm:text-sm lg:text-base mt-0.5"
               style={{ fontFamily: "var(--font-cormorant-garamond)" }}
             >
-              Jayendraganj, Lashkar, Gwalior, MP
+              Gwalior, MP
             </p>
           </div>
         </div>
@@ -109,9 +132,10 @@ export default function Venue() {
           className="text-white/60 text-[15px] sm:text-base lg:text-lg leading-relaxed max-w-[600px] mx-auto"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
-          Built in 1880 by Maharaja Jayaji Rao Scindia, this heritage palace
-          stands on nine acres of lush gardens — a royal haven where history
-          meets celebration.
+          Built in 1880 by Maharaja Jayajirao Scindia as a palace for royal
+          guests, Taj Usha Kiran Palace, surrounded by nine acres of regal
+          gardens, now hosts the beginning of Shreyansh & Ankita’s royal journey
+          together.
         </p>
 
         {/* Date row */}
@@ -119,31 +143,37 @@ export default function Venue() {
           <div className="text-center">
             <p
               className="text-[var(--gold)] text-2xl sm:text-3xl lg:text-5xl font-light"
-              style={{ fontFamily: "var(--font-cormorant)" }}
+              style={{ fontFamily: "var(--font-playfair)" }}
             >
               18–19
             </p>
-            <p className="text-white/50 text-[9px] sm:text-[10px] lg:text-xs tracking-[0.2em] uppercase mt-0.5">April</p>
+            <p className="text-white/50 text-[9px] sm:text-[10px] lg:text-xs tracking-[0.2em] uppercase mt-0.5">
+              April
+            </p>
           </div>
           <div className="w-px h-8 sm:h-10 lg:h-14 bg-white/20" />
           <div className="text-center">
             <p
               className="text-[var(--gold)] text-2xl sm:text-3xl lg:text-5xl font-light"
-              style={{ fontFamily: "var(--font-cormorant)" }}
+              style={{ fontFamily: "var(--font-playfair)" }}
             >
               2026
             </p>
-            <p className="text-white/50 text-[9px] sm:text-[10px] lg:text-xs tracking-[0.2em] uppercase mt-0.5">Year</p>
+            <p className="text-white/50 text-[9px] sm:text-[10px] lg:text-xs tracking-[0.2em] uppercase mt-0.5">
+              Year
+            </p>
           </div>
           <div className="w-px h-8 sm:h-10 lg:h-14 bg-white/20" />
           <div className="text-center">
             <p
               className="text-[var(--gold)] text-2xl sm:text-3xl lg:text-5xl font-light"
-              style={{ fontFamily: "var(--font-cormorant)" }}
+              style={{ fontFamily: "var(--font-playfair)" }}
             >
               Gwalior
             </p>
-            <p className="text-white/50 text-[9px] sm:text-[10px] lg:text-xs tracking-[0.2em] uppercase mt-0.5">City</p>
+            <p className="text-white/50 text-[9px] sm:text-[10px] lg:text-xs tracking-[0.2em] uppercase mt-0.5">
+              City
+            </p>
           </div>
         </div>
       </div>
@@ -165,7 +195,9 @@ export default function Venue() {
               <div className="w-3 h-3 lg:hidden rounded-full bg-[var(--gold)] border-2 border-[var(--black-deep)] shrink-0 mt-1 relative z-10" />
 
               {/* Content */}
-              <div className={`flex-1 ${i % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}>
+              <div
+                className={`flex-1 ${i % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}
+              >
                 <p
                   className="text-[var(--gold)] text-[11px] sm:text-xs lg:text-sm tracking-[0.2em] uppercase mb-2 sm:mb-3"
                   style={{ fontFamily: "var(--font-cormorant-garamond)" }}
@@ -174,7 +206,7 @@ export default function Venue() {
                 </p>
                 <h4
                   className="text-white text-xl sm:text-2xl lg:text-3xl font-light mb-2 sm:mb-3 lg:mb-4"
-                  style={{ fontFamily: "var(--font-cormorant)" }}
+                  style={{ fontFamily: "var(--font-playfair)" }}
                 >
                   {event.name}
                 </h4>

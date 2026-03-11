@@ -9,8 +9,9 @@
   --black-deep: #0d0d0d;
   --white: #ffffff;
   --text-muted: #8a7e6b;
-  --font-display: var(--font-cormorant);
+  --font-display: var(--font-playfair);
   --font-body: var(--font-cormorant-garamond);
+  --font-accent: var(--font-script);
 }
 
 @theme inline {
@@ -139,7 +140,8 @@ body {
 }
 
 /* Touch-friendly: minimum tap target */
-a, button {
+a,
+button {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
@@ -162,13 +164,14 @@ img {
 
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
-
 
 /* Hide scrollbar on mobile for cleaner look */
 @media (max-width: 767px) {
@@ -192,4 +195,100 @@ img {
     background: var(--gold);
     border-radius: 3px;
   }
+}
+
+/* ===== 3D Flipbook Gallery ===== */
+
+.book-page {
+  position: absolute;
+  inset: 0;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
+  will-change: transform;
+}
+
+.book-face {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 0 5% 5% 0;
+}
+
+.book-face-back {
+  transform: rotateY(180deg);
+  border-radius: 5% 0 0 5%;
+}
+
+/* Subtle spine shadow on each page */
+.book-face::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.12), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.book-face-back::after {
+  left: auto;
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.12), transparent);
+}
+
+/* Hide scrollbar in fullscreen book mode */
+.book-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+.book-scroll-container {
+  scrollbar-width: none;
+}
+
+/* Book cover gold corner accents */
+.book-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+.book-corner--tl {
+  top: 12px;
+  left: 12px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+.book-corner--tr {
+  top: 12px;
+  right: 12px;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+.book-corner--bl {
+  bottom: 12px;
+  left: 12px;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+.book-corner--br {
+  bottom: 12px;
+  right: 12px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.amita-regular {
+  font-family: "Amita", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.amita-bold {
+  font-family: "Amita", serif;
+  font-weight: 700;
+  font-style: normal;
 }

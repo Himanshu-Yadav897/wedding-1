@@ -13,10 +13,10 @@ export default function Footer() {
           viewport={{ once: true }}
         >
           <p
-            className="text-[var(--gold)] text-2xl sm:text-3xl lg:text-4xl font-light mb-6 sm:mb-8 lg:mb-10"
-            style={{ fontFamily: "var(--font-cormorant)" }}
+            className="text-[var(--gold)] text-3xl sm:text-4xl lg:text-5xl mb-6 sm:mb-8 lg:mb-10"
+            style={{ fontFamily: "var(--font-script)" }}
           >
-            S &amp; A
+            Shreyansh &amp; Ankita
           </p>
 
           <p
