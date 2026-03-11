@@ -1,12 +1,42 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant, Cormorant_Garamond } from "next/font/google";
+import {
+  Playfair_Display,
+  Carattere,
+  Great_Vibes,
+  Imperial_Script,
+  Cormorant_Garamond,
+  Amita,
+} from "next/font/google";
+
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
-const cormorant = Cormorant({
-  variable: "--font-cormorant",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const carattere = Carattere({
+  variable: "--font-carattere",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const greatVibes = Great_Vibes({
+  variable: "--font-great-vibes",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const imperialScript = Imperial_Script({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const amita = Amita({
+  variable: "--font-",
 });
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -42,7 +72,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cormorant.variable} ${cormorantGaramond.variable} antialiased`}>
+      <body
+        className={`${playfair.variable} ${carattere.variable} ${greatVibes.variable} ${imperialScript.variable} ${cormorantGaramond.variable} antialiased`}
+      >
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
