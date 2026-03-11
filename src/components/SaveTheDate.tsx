@@ -100,7 +100,7 @@ export default function SaveTheDate() {
           className="text-white/60 text-[15px] sm:text-base lg:text-lg mb-14 sm:mb-16 lg:mb-20 max-w-[480px] mx-auto"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
-          सात जन्मों का साथ — the countdown to forever has begun
+          <span style={{ fontFamily: "var(--font-amita), serif" }}>सात जन्मों का साथ</span> — the countdown to forever has begun
         </p>
 
         {/* Countdown — always 4 cols, constrained width */}

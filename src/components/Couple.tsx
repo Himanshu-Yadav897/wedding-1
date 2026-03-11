@@ -111,7 +111,7 @@ export default function Couple() {
             meaning. To me, he is not just a partner. He is my safe place and my
             best friend."
             <br />
-            <span className="ml-90"> ~ Ankita</span>
+            <span> ~ Ankita</span>
           </p>
         </div>
       </div>
@@ -147,7 +147,8 @@ export default function Couple() {
             "Graceful, determined, and full of life. She believes in love that
             grows with time and dreams that grow together. Her smile lights up
             every room, and now it lights up my world."
-            <br />~ Shreyansh
+            <br />
+            <span> ~ Shreyansh</span>
           </p>
         </div>
       </div>

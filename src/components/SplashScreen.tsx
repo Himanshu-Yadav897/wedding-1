@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Image from "next/image";
 
 export default function SplashScreen() {
   const splashRef = useRef<HTMLDivElement>(null);
@@ -27,7 +28,7 @@ export default function SplashScreen() {
           { y: 20, opacity: 0, duration: 0.7, ease: "power3.out" },
           "-=0.4",
         )
-        // Fade in shubh vivah
+        // Fade in shlok
         .from(
           ".splash-subtext",
           { y: 15, opacity: 0, duration: 0.6, ease: "power3.out" },
@@ -54,30 +55,33 @@ export default function SplashScreen() {
     >
       {/* Om symbol */}
       <div
-        className="splash-om text-[var(--gold)] text-7xl sm:text-8xl lg:text-9xl mb-6 sm:mb-8"
+        className="splash-om text-[var(--gold)] text-5xl sm:text-6xl lg:text-7xl mb-3 sm:mb-4"
         style={{ fontFamily: "serif" }}
       >
         ॐ
       </div>
 
-      <img src="../../public/ganesha.png" alt="" />
+      <Image src="/ganesha-Photoroom.png" alt="Lord Ganesha" width={80} height={80} className="splash-om mb-3 sm:mb-4" />
 
       {/* Ganesh invocation */}
       <p
-        className="splash-text text-[var(--gold-light)] text-base sm:text-lg lg:text-xl tracking-wide mb-4 sm:mb-5"
-        style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+        className="splash-text text-[var(--gold-light)] text-sm sm:text-base lg:text-lg tracking-wide mb-2 sm:mb-3"
+        style={{ fontFamily: "var(--font-amita), serif" }}
       >
         ॥ श्री गणेशाय नमः ॥
       </p>
 
       {/* Ganesh Shlok */}
       <div
-        className="splash-subtext text-center text-white/50 text-xs sm:text-sm lg:text-base leading-relaxed"
-        style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+        className="splash-subtext text-center text-white/50 text-[10px] sm:text-xs lg:text-sm leading-relaxed mb-8 sm:mb-10"
+        style={{ fontFamily: "var(--font-amita), serif" }}
       >
         <p>वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः।</p>
         <p>निर्विघ्नं कुरु मे देव सर्व कार्येषु सर्वदा॥</p>
       </div>
+
+      {/* Logo — center */}
+      <Image src="/SA logo.png" alt="Wedding Logo" width={200} height={200} className="splash-logo" />
     </div>
   );
 }

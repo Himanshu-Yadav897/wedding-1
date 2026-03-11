@@ -61,7 +61,7 @@ export default function Hero() {
         <div className="overflow-hidden mb-4 sm:mb-5 lg:mb-6">
           <p
             className="hero-line text-[var(--gold)] text-sm sm:text-base lg:text-lg tracking-wide"
-            style={{ fontFamily: "serif" }}
+            style={{ fontFamily: "var(--font-amita), serif" }}
           >
             || श्री गणेशाय नमः ||
           </p>

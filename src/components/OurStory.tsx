@@ -107,7 +107,7 @@ export default function OurStory() {
           Written in the Stars
           <br />
           <br />{" "}
-          <span className="amita-regular amita-bold">✦ विधि का विधान ✦</span>
+          <span className="font-bold" style={{ fontFamily: "serif" }}>✦ विधि का विधान ✦</span>
         </h2>
       </div>
 

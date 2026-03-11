@@ -5,7 +5,7 @@ import {
   Great_Vibes,
   Imperial_Script,
   Cormorant_Garamond,
-  // Amita,
+  Amita,
 } from "next/font/google";
 
 import "./globals.css";
@@ -35,12 +35,11 @@ const imperialScript = Imperial_Script({
   weight: ["400"],
 });
 
-//we hagve use this hindi in our project
-// const amita = Amita({
-//   variable: "--font-amita",
-//   subsets: ["hindi"],
-//   weight: ["400"],
-// });
+const amita = Amita({
+  variable: "--font-amita",
+  subsets: ["devanagari"],
+  weight: ["400", "700"],
+});
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
@@ -76,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${carattere.variable} ${greatVibes.variable} ${imperialScript.variable} ${cormorantGaramond.variable}  antialiased`}
+        className={`${playfair.variable} ${carattere.variable} ${greatVibes.variable} ${imperialScript.variable} ${cormorantGaramond.variable} ${amita.variable} antialiased`}
       >
         <SmoothScroll>{children}</SmoothScroll>
       </body>
