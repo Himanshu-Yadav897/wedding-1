@@ -11,6 +11,7 @@ export default function Home() {
   return (
     <main>
       <SplashScreen />
+
       <Hero />
       <Couple />
       <OurStory />

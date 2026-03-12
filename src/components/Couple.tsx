@@ -60,7 +60,7 @@ export default function Couple() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 sm:py-32 lg:py-44 bg-[var(--cream)]"
+      className="pt-6 pb-24 sm:pt-10 sm:pb-32 lg:pt-14 lg:pb-44 bg-[var(--cream)]"
     >
       {/* Section title */}
       <div className="section-container text-center mb-14 sm:mb-20 lg:mb-28">
@@ -72,7 +72,7 @@ export default function Couple() {
         </p>
         <h2
           className="text-[var(--black)] text-3xl sm:text-4xl lg:text-6xl font-light"
-          style={{ fontFamily: "var(--font-playfair)" }}
+          style={{ fontFamily: "var(--font-cookie)" }}
         >
           Two Souls, One Sacred Bond
         </h2>
@@ -106,10 +106,10 @@ export default function Couple() {
             className="text-[var(--text-muted)] text-base sm:text-lg lg:text-xl leading-relaxed max-w-md mx-auto lg:mx-0"
             style={{ fontFamily: "var(--font-cormorant-garamond)" }}
           >
-            "A man with a calm heart, big dreams, and a smile that feels like
-            home. He believes in loyalty, laughter, and building a life full of
-            meaning. To me, he is not just a partner. He is my safe place and my
-            best friend."
+            "He has a smile that instantly feels like home. He believes in a
+            life guided by faith and purpose, and that conviction shapes the way
+            he lives and loves. To me, he is not just a partner, but my best
+            friend and my safe haven."
             <br />
             <span> ~ Ankita</span>
           </p>
@@ -141,12 +141,13 @@ export default function Couple() {
             Ankita
           </h3>
           <p
-            className="text-[var(--text-muted)] text-base sm:text-lg lg:text-xl max-w-md mx-auto lg:ml-auto"
+            className="text-[var(--text-muted)] text-base sm:text-lg lg:text-xl leading-relaxed max-w-md mx-auto lg:ml-auto lg:mr-0"
             style={{ fontFamily: "var(--font-cormorant-garamond)" }}
           >
-            "Graceful, determined, and full of life. She believes in love that
-            grows with time and dreams that grow together. Her smile lights up
-            every room, and now it lights up my world."
+            "She is a woman of grace and vibrant energy. She believes that love
+            and dreams grow stronger with time and togetherness, and she carries
+            that belief into everything she does. To me, she is not just a
+            partner, but a constant source of joy in my world."
             <br />
             <span> ~ Shreyansh</span>
           </p>

@@ -23,7 +23,8 @@
       "Bash(taskkill:*)",
       "Bash(timeout /t:*)",
       "Bash(kill:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "WebFetch(domain:fonts.google.com)"
     ]
   }
 }

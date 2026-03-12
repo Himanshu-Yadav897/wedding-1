@@ -56,7 +56,7 @@ export default function Hero() {
       </div>
 
       {/* Content — centered, max-width constrained */}
-      <div className="absolute top-[15dvh] sm:top-0 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-center px-5 sm:px-8 sm:pt-[8dvh] safe-top w-full max-w-[900px] max-h-[50dvh]">
+      <div className="absolute top-[5dvh] sm:top-0 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-center px-5 sm:px-8 sm:pt-[8dvh] safe-top w-full max-w-[px]">
         {/* Hindu invocation */}
         <div className="overflow-hidden mb-4 sm:mb-5 lg:mb-6">
           <p
@@ -69,16 +69,16 @@ export default function Hero() {
 
         <div className="overflow-hidden">
           <p
-            className="hero-line text-[var(--gold-light)] tracking-[0.25em] sm:tracking-[0.3em] uppercase text-[11px] sm:text-xs lg:text-base mb-3 lg:mb-5"
+            className="hero-line text-[var(--gold-light)] tracking-[0.25em] sm:tracking-[0.3em] uppercase text-[11px] sm:text-xs lg:text-base mb-5 sm:mb-3 lg:mb-5 mt-3 sm:mt-0 font-bold"
             style={{ fontFamily: "var(--font-cormorant-garamond)" }}
           >
             Together with their families
           </p>
         </div>
 
-        <div className="overflow-hidden mt-1 sm:mt-2 lg:mt-3 px-4 py-1">
+        <div className="mt-1 sm:mt-1 lg:mt-2 px-4">
           <h1
-            className="hero-line text-white text-[9vw] sm:text-[7vw] lg:text-[72px] xl:text-[84px] leading-[1.3]"
+            className="hero-line text-white text-[9vw] sm:text-[7vw] lg:text-[72px] xl:text-[84px] leading-[1.1]"
             style={{ fontFamily: "var(--font-carattere)" }}
           >
             Shreyansh
@@ -93,7 +93,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="overflow-hidden my-1 sm:my-2 lg:my-3 px-4">
+        <div className="overflow-hidden my-0.5 sm:my-1 lg:my-2 px-4">
           <p
             className="hero-line text-[var(--gold-light)] text-xl sm:text-2xl lg:text-4xl"
             style={{ fontFamily: "var(--font-script)" }}
@@ -102,9 +102,9 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="overflow-hidden px-4 py-1">
+        <div className="px-4">
           <h1
-            className="hero-line text-white text-[9vw] sm:text-[7vw] lg:text-[72px] xl:text-[84px] leading-[1.3]"
+            className="hero-line text-white text-[9vw] sm:text-[7vw] lg:text-[72px] xl:text-[84px] leading-[1.1]"
             style={{ fontFamily: "var(--font-carattere)" }}
           >
             Ankita
@@ -119,6 +119,15 @@ export default function Hero() {
             (D/o Mrs. Nisha Devi &amp; Late Rajesh Singh Rajawat)
           </p>
         </div>
+
+        <div className="overflow-hidden">
+          <p
+            className="hero-line text-[var(--gold-light)] tracking-[0.25em] sm:tracking-[0.3em] uppercase text-[11px] sm:text-xs lg:text-base mb-5 sm:mb-3 lg:mb-5 mt-3 sm:mt-0 font-bold pt-3"
+            style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+          >
+            request the honour of your presence at their wedding ceremony
+          </p>
+        </div>
       </div>
 
       {/* Date & venue pinned near bottom */}
@@ -127,7 +136,7 @@ export default function Hero() {
           <div className="ornament">
             <span
               className="text-[var(--gold-light)] tracking-[0.2em] uppercase text-[11px] sm:text-xs lg:text-base"
-              style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+              style={{ fontFamily: "var(--font-kavivanar)" }}
             >
               April 18–19, 2026
             </span>

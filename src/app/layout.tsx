@@ -6,6 +6,10 @@ import {
   Imperial_Script,
   Cormorant_Garamond,
   Amita,
+  Cookie,
+  Grand_Hotel,
+  Cinzel_Decorative,
+  Kavivanar,
 } from "next/font/google";
 
 import "./globals.css";
@@ -39,6 +43,30 @@ const amita = Amita({
   variable: "--font-amita",
   subsets: ["devanagari"],
   weight: ["400", "700"],
+});
+
+const cookie = Cookie({
+  variable: "--font-cookie",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const cinzelDecorative = Cinzel_Decorative({
+  variable: "--font-cinzel-decorative",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const grandHotel = Grand_Hotel({
+  variable: "--font-grand-hotel",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const kavivanar = Kavivanar({
+  variable: "--font-kavivanar",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -75,7 +103,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${carattere.variable} ${greatVibes.variable} ${imperialScript.variable} ${cormorantGaramond.variable} ${amita.variable} antialiased`}
+        className={`${playfair.variable} ${carattere.variable} ${greatVibes.variable} ${imperialScript.variable} ${cormorantGaramond.variable} ${amita.variable} ${cookie.variable} ${grandHotel.variable} ${cinzelDecorative.variable} ${kavivanar.variable} antialiased`}
       >
         <SmoothScroll>{children}</SmoothScroll>
       </body>

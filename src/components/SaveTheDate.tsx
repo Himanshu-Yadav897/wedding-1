@@ -28,7 +28,9 @@ function useCountdown(targetDate: Date) {
 
       setTimeLeft({
         days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        hours: Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        ),
         minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((distance % (1000 * 60)) / 1000),
       });
@@ -53,20 +55,36 @@ export default function SaveTheDate() {
       const isMobile = window.innerWidth < 768;
 
       gsap.from(".countdown-item", {
-        y: isMobile ? 20 : 40, opacity: 0, duration: isMobile ? 0.5 : 0.8, stagger: 0.08, ease: "power3.out",
-        scrollTrigger: { trigger: ".countdown-grid", start: isMobile ? "top 90%" : "top 80%" },
+        y: isMobile ? 20 : 40,
+        opacity: 0,
+        duration: isMobile ? 0.5 : 0.8,
+        stagger: 0.08,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".countdown-grid",
+          start: isMobile ? "top 90%" : "top 80%",
+        },
       });
 
       gsap.from(".save-title", {
-        y: isMobile ? 30 : 60, opacity: 0, duration: isMobile ? 0.6 : 1, ease: "power3.out",
-        scrollTrigger: { trigger: ".save-title", start: isMobile ? "top 90%" : "top 85%" },
+        y: isMobile ? 30 : 60,
+        opacity: 0,
+        duration: isMobile ? 0.6 : 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".save-title",
+          start: isMobile ? "top 90%" : "top 85%",
+        },
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen-safe flex items-center justify-center overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen-safe flex items-center justify-center overflow-hidden"
+    >
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -81,30 +99,33 @@ export default function SaveTheDate() {
       </div>
 
       {/* Content — centered, max-width constrained */}
-      <div className="relative z-10 text-center px-5 sm:px-8 py-28 sm:py-32 lg:py-36 w-full max-w-[800px] mx-auto safe-top safe-bottom">
+      <div className="relative z-10 text-center px-5 sm:px-8 py-10 sm:py-16 lg:py-20 w-full max-w-[800px]">
         <p
-          className="text-[var(--gold-light)] tracking-[0.25em] uppercase text-[10px] sm:text-xs lg:text-sm mb-6 sm:mb-8 lg:mb-10"
+          className="text-[var(--gold-light)] tracking-[0.25em] uppercase text-[12px] sm:text-xs lg:text-sm mb-3 sm:mb-4 lg:mb-5 font-bold"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
           Save the Date
         </p>
 
         <h2
-          className="save-title text-white text-[10vw] sm:text-[7vw] lg:text-[64px] xl:text-[72px] font-light mb-6 sm:mb-8 lg:mb-10"
-          style={{ fontFamily: "var(--font-playfair)" }}
+          className="save-title text-white text-[10vw] sm:text-[7vw] lg:text-[64px] xl:text-[72px] font-light mb-3 sm:mb-4 lg:mb-5"
+          style={{ fontFamily: "var(--font-kavivanar)" }}
         >
           April 18–19, 2026
         </h2>
 
         <p
-          className="text-white/60 text-[15px] sm:text-base lg:text-lg mb-14 sm:mb-16 lg:mb-20 max-w-[480px] mx-auto"
+          className="text-white/60 text-[15px] sm:text-base lg:text-lg mb-8 sm:mb-10 lg:mb-12 max-w-[480px] mx-auto"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
-          <span style={{ fontFamily: "var(--font-amita), serif" }}>सात जन्मों का साथ</span> — the countdown to forever has begun
+          <span style={{ fontFamily: "var(--font-amita), serif" }}>
+            सात जन्मों का साथ
+          </span>{" "}
+          — the countdown to forever has begun
         </p>
 
         {/* Countdown — always 4 cols, constrained width */}
-        <div className="countdown-grid grid grid-cols-4 gap-3 sm:gap-6 lg:gap-8 max-w-xs sm:max-w-sm lg:max-w-[520px] mx-auto mb-14 sm:mb-16 lg:mb-20">
+        <div className="countdown-grid grid grid-cols-4 gap-3 sm:gap-6 lg:gap-8 max-w-xs sm:max-w-sm lg:max-w-[520px] mx-auto mb-8 sm:mb-10 lg:mb-12">
           {[
             { value: days, label: "Days", labelFull: "Days" },
             { value: hours, label: "Hours", labelFull: "Hours" },

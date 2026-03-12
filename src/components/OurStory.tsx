@@ -27,24 +27,24 @@ const storyImages = [
 
 const storyTexts = [
   {
-    title: "The Beginning — When We Met",
-    text: "Some meetings are just coincidences… But some meetings are destiny gently introducing two souls. The day we met, we didn’t know it yet but our story had already begun.",
+    title: "The Beginning",
+    text: "Some meetings may appear coincidental but it is destiny quietly bringing two souls together. When we first met, little did we know that this simple meeting would become the beginning of a beautiful story, one that would change our lives forever.",
   },
   {
-    title: "The Journey — Dating Phase",
-    text: "From long conversations to shared dreams, our bond grew stronger with every passing day. Through laughter, adventures, and countless memories, we discovered that love isn’t just a feeling, it’s choosing each other every day. And somewhere along the journey, we knew this was forever.",
+    title: "The Journey",
+    text: "What started with long conversations soon turned into shared dreams. With every passing day, our bond grew deeper. Through moments both big and small, we discovered that love isn’t just a feeling in time, it’s choosing each other, every single day. And somewhere along the way, we both knew this was forever.",
   },
   {
-    title: "The Surprise — Bali Trip",
-    text: "What Ankita thought was just a beautiful birthday trip turned into the most unforgettable chapter of her story. Amidst the breathtaking beauty of Bali, he had secretly planned a surprise that would change her life forever. Little did she know that this trip would become the moment when their love story truly turned magical.",
+    title: "The Surprise",
+    text: "What Ankita thought was simply a beautiful birthday getaway soon turned into one of the most unforgettable chapters of her life. Amidst the breathtaking beauty of Bali, Shreyansh had quietly planned a surprise that would change their story forever. Little did she know that this trip would become the moment when their love story turned truly magical.",
   },
   {
-    title: "The Promise — The Proposal",
-    text: "A moment filled with love, surprise, and a promise for a lifetime. When he went down on one knee, time seemed to pause. And with one “yes,” our forever officially began.",
+    title: "The Promise",
+    text: "A moment filled with love, surprise, and the promise of a lifetime. As her blindfold withdrew and he went down on one knee, time seemed to stand still. And in that beautiful moment, with a heartfelt “yes”, their forever officially began.",
   },
   {
-    title: "Forever Begins — The Roka",
-    text: "Surrounded by our families, blessings, and endless happiness, we came together to celebrate the beginning of our forever. The Roka marked not just the union of two hearts, but the coming together of two beautiful families. And with love, laughter, and blessings all around — our forever officially began...",
+    title: "Forever Begins",
+    text: "Surrounded by the love of family, heartfelt blessings, and endless joy, we came together to celebrate the beginning of our forever. The Roka was more than a ceremony, it was the coming together of two hearts and two beautiful families. With love, laughter, and blessings all around, our journey toward forever truly began.",
   },
 ];
 
@@ -90,38 +90,47 @@ export default function OurStory() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 sm:py-32 lg:py-44 bg-[var(--black-deep)]"
+      className="pt-6 pb-24 sm:pt-10 sm:pb-32 lg:pt-14 lg:pb-44 bg-[var(--black-deep)]"
     >
       {/* Section title */}
-      <div className="section-container text-center mb-14 sm:mb-20 lg:mb-28">
+      <div className="section-container text-center mb-8 sm:mb-20 lg:mb-28">
         <p
           className="text-[var(--gold)] tracking-[0.3em] uppercase text-[10px] sm:text-xs lg:text-sm mb-5 sm:mb-6 lg:mb-8"
-          style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+          style={{ fontFamily: "var(--font-kavivanar)" }}
         >
           Our Love Story
         </p>
         <h2
           className="text-white text-3xl sm:text-4xl lg:text-6xl font-light"
-          style={{ fontFamily: "var(--font-playfair)" }}
+          style={{ fontFamily: "var(--font-cookie)" }}
         >
           Written in the Stars
           <br />
-          <br />{" "}
-          <span className="font-bold" style={{ fontFamily: "serif" }}>✦ विधि का विधान ✦</span>
+          <span className="font-bold" style={{ fontFamily: "serif" }}>
+            ✦ विधि का विधान ✦
+          </span>
         </h2>
       </div>
 
       {/* Story items */}
-      <div className="section-container space-y-24 sm:space-y-28 lg:space-y-36">
+      <div className="section-container space-y-12 sm:space-y-28 lg:space-y-36">
         {storyImages.map((img, i) => (
           <div
             key={i}
             className={`story-item flex flex-col ${
               i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-            } items-center gap-10 sm:gap-14 lg:gap-16`}
+            } items-center gap-4 lg:gap-16`}
           >
-            {/* Image — fixed 420px width on desktop */}
-            <div className="story-img relative w-[90%] mx-auto sm:w-[80%] lg:w-[420px] lg:mx-0 lg:shrink-0 aspect-[4/5] overflow-hidden rounded-xl sm:rounded-lg lg:rounded-sm">
+            {/* Chapter label — mobile: first, desktop: inside text block */}
+            <p
+              className={`order-1 lg:hidden text-center text-[var(--gold)] tracking-[0.2em] uppercase text-sm sm:text-base lg:text-sm font-bold`}
+              style={{ fontFamily: "var(--font-kavivanar)" }}
+            >
+              Chapter {i + 1}
+            </p>
+
+            {/* Image — mobile: second */}
+            <div className="story-img relative w-[90%] mx-auto sm:w-[80%] lg:w-[420px] lg:mx-0 lg:shrink-0 aspect-[4/5] overflow-hidden rounded-xl sm:rounded-lg lg:rounded-sm order-2 lg:order-none">
               <Image
                 src={img.src}
                 alt={img.alt}
@@ -131,26 +140,28 @@ export default function OurStory() {
               />
             </div>
 
-            {/* Text */}
+            {/* Text — mobile: third (heading + description only), desktop: full block */}
             <div
-              className={`story-text flex-1 text-center px-6 sm:px-10 lg:px-0 ${
+              className={`story-text flex-1 text-center px-6 sm:px-10 lg:px-0 order-3 lg:order-none ${
                 i % 2 === 0 ? "lg:text-left" : "lg:text-right"
               }`}
             >
               <p
-                className="text-[var(--gold)] tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 sm:mb-5 lg:mb-6"
-                style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+                className="hidden lg:block text-[var(--gold)] tracking-[0.2em] uppercase text-sm sm:text-base lg:text-sm mb-4 sm:mb-5 lg:mb-6 font-bold"
+                style={{ fontFamily: "var(--font-kavivanar)" }}
               >
                 Chapter {i + 1}
               </p>
               <h3
-                className="text-white text-2xl sm:text-3xl lg:text-4xl font-light mb-5 sm:mb-6 lg:mb-8"
-                style={{ fontFamily: "var(--font-playfair)" }}
+                className="text-white text-xl sm:text-2xl lg:text-3xl mb-5 sm:mb-6 lg:mb-8"
+                style={{ fontFamily: "var(--font-cinzel-decorative)" }}
               >
                 {storyTexts[i].title}
               </h3>
               <p
-                className="text-white/60 text-[15px] sm:text-base lg:text-lg leading-relaxed max-w-md mx-auto lg:mx-0"
+                className={`text-white/60 text-[15px] sm:text-base lg:text-lg leading-relaxed max-w-md mx-auto ${
+                  i % 2 === 0 ? "lg:mr-auto lg:ml-0" : "lg:ml-auto lg:mr-0"
+                }`}
                 style={{ fontFamily: "var(--font-cormorant-garamond)" }}
               >
                 {storyTexts[i].text}

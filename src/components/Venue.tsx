@@ -82,7 +82,7 @@ export default function Venue() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 sm:py-32 lg:py-44 bg-[var(--black-deep)] relative"
+      className="pt-6 pb-24 sm:pt-10 sm:pb-32 lg:pt-14 lg:pb-44 bg-[var(--black-deep)] relative"
     >
       {/* Section title */}
       <div className="section-container text-center mb-14 sm:mb-18 lg:mb-24">
@@ -143,7 +143,7 @@ export default function Venue() {
           <div className="text-center">
             <p
               className="text-[var(--gold)] text-2xl sm:text-3xl lg:text-5xl font-light"
-              style={{ fontFamily: "var(--font-playfair)" }}
+              style={{ fontFamily: "var(--font-kavivanar)" }}
             >
               18–19
             </p>
@@ -155,7 +155,7 @@ export default function Venue() {
           <div className="text-center">
             <p
               className="text-[var(--gold)] text-2xl sm:text-3xl lg:text-5xl font-light"
-              style={{ fontFamily: "var(--font-playfair)" }}
+              style={{ fontFamily: "var(--font-kavivanar)" }}
             >
               2026
             </p>
@@ -199,14 +199,14 @@ export default function Venue() {
                 className={`flex-1 ${i % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}
               >
                 <p
-                  className="text-[var(--gold)] text-[11px] sm:text-xs lg:text-sm tracking-[0.2em] uppercase mb-2 sm:mb-3"
-                  style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+                  className="text-[var(--gold)] text-sm sm:text-base lg:text-sm tracking-[0.2em] uppercase mb-2 sm:mb-3"
+                  style={{ fontFamily: "var(--font-kavivanar)" }}
                 >
                   {event.time}
                 </p>
                 <h4
-                  className="text-white text-xl sm:text-2xl lg:text-3xl font-light mb-2 sm:mb-3 lg:mb-4"
-                  style={{ fontFamily: "var(--font-playfair)" }}
+                  className="text-white text-3xl sm:text-2xl lg:text-5xl font-light mb-2 sm:mb-3 lg:mb-4"
+                  style={{ fontFamily: "var(--font-cookie)" }}
                 >
                   {event.name}
                 </h4>
