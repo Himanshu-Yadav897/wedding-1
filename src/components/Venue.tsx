@@ -17,7 +17,7 @@ const events = [
   },
   {
     name: "Ring in the Bling",
-    time: "4:00 PM - 18th April 2026",
+    time: "7:00 PM - 18th April 2026",
     description:
       "The couple exchanges rings as a promise of togetherness, followed by an evening of music, dance, and celebration with family and friends.",
   },

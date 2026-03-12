@@ -26,8 +26,9 @@ function flipPages(
       p = (progress - pageStart) / (pageEnd - pageStart);
 
     const rotation = p * -180;
-    page.style.transform = `rotateY(${rotation}deg)`;
-    page.style.zIndex = rotation < -90 ? String(i + 1) : String(total * 2 - i);
+    const zIndex = rotation < -90 ? i + 1 : total * 2 - i;
+    page.style.transform = `translateZ(${zIndex * 0.1}px) rotateY(${rotation}deg)`;
+    page.style.zIndex = String(zIndex);
   });
 
   if (counterEl) {
@@ -376,11 +377,13 @@ export default function Gallery() {
       const leaves = pageEls.current.filter(Boolean) as HTMLDivElement[];
       if (leaves.length === 0) return;
 
-      /* Reset all pages */
+      /* Reset all pages — use translateZ to pre-create GPU layers */
       currentPageRef.current = 0;
+      const total = leaves.length;
       leaves.forEach((page, i) => {
-        page.style.transform = "rotateY(0deg)";
-        page.style.zIndex = String(leaves.length * 2 - i);
+        const zIndex = total * 2 - i;
+        page.style.transform = `translateZ(${zIndex * 0.1}px) rotateY(0deg)`;
+        page.style.zIndex = String(zIndex);
       });
 
       if (isMobile) {
