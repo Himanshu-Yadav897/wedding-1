@@ -44,7 +44,7 @@ function useCountdown(targetDate: Date) {
   return timeLeft;
 }
 
-const WEDDING_DATE = new Date("2026-04-18T11:00:00+05:30");
+const WEDDING_DATE = new Date("2026-04-19T00:00:00+05:30");
 
 export default function SaveTheDate() {
   const sectionRef = useRef<HTMLElement>(null);

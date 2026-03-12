@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 /* ── Event data ─────────────────────────────────────────── */
 const wardrobeEvents = [
   {
-    date: "18 April · Haldi Morning",
+    date: "18 April · Pushp Bahaar",
     theme: "Bloom & Glow",
     tagline: "Floral Pastels · Sunshine vibes",
     image: "/Wardrobe/haldi.png",
@@ -31,7 +31,7 @@ const wardrobeEvents = [
     glowColor: "#F6D860",
   },
   {
-    date: "18 April · Engagement & Cocktail",
+    date: "18 April · Ring in the Bling",
     theme: "Filmy Glam",
     tagline: "Bollywood sparkle · Red carpet moments",
     image: "/Wardrobe/flimygyaan.png",
@@ -52,7 +52,7 @@ const wardrobeEvents = [
     glowColor: "#0B1F3B",
   },
   {
-    date: "19 April · Baraat · Phere · Reception",
+    date: "19 April · Shahi Yatra\nMangal Sanskar",
     theme: "Rajwada Royal",
     tagline: "Timeless heritage · Royal grandeur",
     image: "/Wardrobe/Rajwada royal.png",
@@ -243,7 +243,7 @@ export default function Wardrobe() {
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 -mt-6 relative z-10">
                     {/* Date */}
                     <p
-                      className="text-[var(--gold)] tracking-[0.2em] uppercase text-[9px] sm:text-[10px] lg:text-xs mb-1"
+                      className="text-[var(--gold)] tracking-[0.2em] uppercase text-[11px] sm:text-sm lg:text-base mb-1 font-bold whitespace-pre-line"
                       style={{ fontFamily: "var(--font-kavivanar)" }}
                     >
                       {event.date}
@@ -309,11 +309,14 @@ export default function Wardrobe() {
             <button
               key={ev.theme}
               onClick={() => goTo(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                active === i
-                  ? "bg-[var(--gold)] w-6"
-                  : "bg-[var(--text-muted)]/40 w-2"
+              className={`h-2 rounded-full transition-all duration-500 ${
+                active === i ? "w-6" : "bg-[var(--text-muted)]/40 w-2"
               }`}
+              style={
+                active === i
+                  ? { backgroundColor: wardrobeEvents[active].palette[0].hex }
+                  : undefined
+              }
               aria-label={`Go to ${ev.theme}`}
             />
           ))}
@@ -369,7 +372,7 @@ export default function Wardrobe() {
 
         {/* Mobile swipe hint */}
         <p
-          className="sm:hidden text-center text-[var(--text-muted)] text-[10px] tracking-[0.2em] uppercase mt-3 animate-pulse"
+          className="sm:hidden text-center text-[var(--text-muted)] text-sm tracking-[0.2em] uppercase mt-3 animate-pulse font-bold"
           style={{ fontFamily: "var(--font-cormorant-garamond)" }}
         >
           Swipe to explore
