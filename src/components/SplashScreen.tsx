@@ -22,26 +22,26 @@ export default function SplashScreen() {
         duration: 1,
         ease: "power2.out",
       })
-        // Fade in shlok
+        // Shlok starts while Ganesha is still settling
         .from(".splash-subtext", {
           y: 15,
           opacity: 0,
-          duration: 2,
+          duration: 1,
           ease: "power3.out",
-        })
-        // Fade in bottom logo + hashtag
+        }, "-=0.4")
+        // Logo starts while shlok is still fading in
         .from(".splash-bottom", {
           y: 20,
           opacity: 0,
-          duration: 2,
+          duration: 1,
           ease: "power3.out",
-        })
-        // Hold
-        .to({}, { duration: 1 })
-        // Fade out everything
+        }, "-=0.4")
+        // Brief hold
+        .to({}, { duration: 0.6 })
+        // Smooth fade out
         .to(splashRef.current, {
           opacity: 0,
-          duration: 2,
+          duration: 1,
           ease: "power2.inOut",
         });
     },
